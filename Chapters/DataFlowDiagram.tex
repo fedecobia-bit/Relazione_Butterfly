@@ -1,18 +1,47 @@
 \section{Data Flow Diagram}
-\noindent In questo capitolo verrà illustrato l'approccio che è stato scelto per il data flow diagram.
-Andando prima a confrontare gli approcci "As Soon As Possible" \(ASAP\) e "As Late As Possible" \(ALAP\).
-Infine verranno illustrati i blocchi operazionali prosenti nelle specifiche di progetto e l'approccio che è stato utilizzato per ottimizzare le tempistiche dell'algoritmo.
+\noindent In questo capitolo si parlerà delle specifiche imposte sui blocchi operazionali.
+Si andrà a confrontare gli approcci "As Soon As Possible" \(ASAP\) e "As Late As Possible" \(ALAP\).
+Infine verrà illustrato l'approccio che è stato utilizzato per ottimizzare le tempistiche dell'algoritmo.
 
-\subsection{Specifiche blocchi operazionali}
+\subsection{Specifiche sui blocchi operazionali}
+\noindent In questo Progetto si supponeva di poter utilizzare per ciascuna Butterfly un unico blocco moltiplicatore.
+In grado di poter svolgere sia l'operazione di moltiplicazione tra due numeri in ingresso sia come un moltiplicatore per 2 di un dato in ingresso.
+Le due operzioni erano selezionabili attraverso un segnale di controllo esterno al blocco operatore.
+Si è supposto che il moltiplicatore avesse due livelli di pipeline, ovvero che il risultato fosse disponibile al registro di uscita dopo 3 colpi di clock.
+Mentre l'operazione di shift (moltiplicazione per 2) avesse un livello di pipeline e quindi l'uscita sarebbe disponibile dopo 2 colpi di clock.
+Il blocco moltiplicatore è stato rappresentato in \ref{fig: blockfdataflowdiagram} con il blocco \(verde\) e mentre l'operazione di shift è stata rappresentata con il blocco \(viola\).
 
-\subsection{Approccio ASAP}
-\noindent L'approccio "As Soon As Possible", è un approccio che predilige lo svolgimento delle operazioni non appena si ha disponibilità.
+I blocchi sommatore e sottrattore avevano entrambi un livello di pipeline e sono rappresentati rispettivamente dal blocco \(rosso\) e \(blu\).
 
-\subsection{Approccio ALAP}
+Al fine di rappresentare anche l'operzione di ROM Rounding presente alla fine dell'algoritmo è stato deciso di impiegare un colpo di clock per l'operzione di arrotondamento (blocco \(azzurro\)) e 
+utilizzare successivamente un registro controllato esternamente per mantenere in vita le variabili di uscita della butterfly.
+
+
+
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{Foto/DataFlowDiagram/BlocchiDataFlowDiagram.jpg}
     \caption{Blocchi elementari del data flow diagram}
-    \label{fig: blockfdataflowdiagram}
+    \label{fig: blockdataflowdiagram}
+\end{figure}
+
+\subsection{Approccio ASAP}
+\noindent L'approccio "As Soon As Possible", è un approccio che predilige lo svolgimento delle operazioni non appena si ha disponibilità.
+da continuare.
+inserire foto.
+
+\subsection{Approccio ALAP}
+\noindent L'approccio "As Late As Possible", questo approccio predilige lo svolgimento delle operazioni il più tardi possibile.
+da continuare.
+inserire foto.
+
+\subsection{Approccio scelto}
+Per ottimizzare le tempistiche dell'algoritmo avendo delle restrizioni sul numero di operatori si è optato per il data flow diagram illustrato in \ref{fig: dataflowdiagram}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{Foto/DataFlowDiagram/DataFlowDiagram.jpg}
+    \caption{Data flow diagram}
+    \label{fig: dataflowdiagram}
 \end{figure}

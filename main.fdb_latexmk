@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1767629439.46221 "c:/Users/User/Desktop/FFT/Relazione_Butterfly/main.tex" "main.pdf" "main" 1767629441.00286 0
+["pdflatex"] 1767633687.72959 "c:/Users/User/Desktop/FFT/Relazione_Butterfly/main.tex" "main.pdf" "main" 1767633689.28355 0
   "C:/Users/User/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1767628668 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/User/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1767628671 11548 d00322c627a09fb418ac8e1e1547ef88 ""
   "C:/Users/User/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1767628226 13333002 155fa4b90eef27b5bd90abe885ee3006 ""
@@ -195,18 +195,19 @@
   "C:/Users/User/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/User/AppData/Local/Programs/MiKTeX/tex/latex/wrapfig/wrapfig.sty" 1044403200 26220 3701aebf80ccdef248c0c20dd062fea9 ""
   "C:/Users/User/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "Chapters/DataFlowDiagram.tex" 1767629439 753 524ed451de65598b8c1f053c32fe97d7 ""
+  "Chapters/DataFlowDiagram.tex" 1767633685 2772 eb3635ceb766b1bf950bb964bb5610f4 ""
   "Chapters/Datapath.tex" 1767627432 244 8d3c6a177cb0992689d14e50bfa66c8b ""
   "Chapters/Introduzione.tex" 1767627432 2794 d86582659c8311cea4c60298f250a139 ""
-  "Foto/DataFlowDiagram/BlocchiDataFlowDiagram.jpg" 1767627112 35209 032b08a2f26bc04e7e78f62674440b66 ""
+  "Foto/DataFlowDiagram/BlocchiDataFlowDiagram.jpg" 1767631174 107314 2f6cd2ebf0116ef0b5e242d7a7800cdd ""
+  "Foto/DataFlowDiagram/DataFlowDiagram.jpg" 1767627107 122776 8f6c09764e8a90c33a24ebdaaf06ceb7 ""
   "Foto/datapath.jpg" 1767627432 70892 6983d359b5113109eac18d106d4716b7 ""
   "Style/Frontespizio.tex" 1767627432 722 26ca51203faea020f743d03716436e61 ""
   "Style/logo.png" 1767627432 347345 9bc6f069ddf1cb240a7968a52cfd8dc3 ""
   "c:/Users/User/Desktop/FFT/Relazione_Butterfly/main.tex" 1767627939 2108 ac59383b8554ed1fa067f675e8f0252e ""
-  "main.aux" 1767629440 1294 a078089594acbe807f4582400d819371 "pdflatex"
-  "main.out" 1767629440 450 0784824f93acf202393964a1363e2aa3 "pdflatex"
+  "main.aux" 1767633689 1894 e1afec70055aa325fce8d6a34e71d99f "pdflatex"
+  "main.out" 1767633689 961 c3d321c0da0b040bcba6e13bdf14ecba "pdflatex"
   "main.tex" 1767627939 2108 ac59383b8554ed1fa067f675e8f0252e ""
-  "main.toc" 1767629440 345 89dcfb8aa8b793912bf79050684de22e "pdflatex"
+  "main.toc" 1767633689 608 6af350addf1b3951b1f6e878aed5f402 "pdflatex"
   (generated)
   "main.aux"
   "main.log"
