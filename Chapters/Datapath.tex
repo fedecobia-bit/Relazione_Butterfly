@@ -1,10 +1,21 @@
-% \textit{Fig. \ref{fig: 2D_power_vs_current}}
-
 \section{Datapath}
+
+\noindent Dopo aver stimato e valutato il tempo di vita delle variabili si è iniziato a progettare il datapath necessario a
+svolgere tutte le operazioni richieste della CU.
+Il primo datapath studiato è rappresentato in \textit{Fig. \ref{fig: datapath_originale}}.
+Come si vede dallo schema non è stato apportato ancora nessun miglioramento volto all'ottimizzazione del numero di bus e/o al
+loro parallelismo.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\textwidth]{Foto/datapath.jpg}
-    \caption{Schema del datapath}
+    \includegraphics[width=0.75\textwidth]{Foto/Datapath/datapath_originale.jpg}
+    \caption{Schema del datapath iniziale}
+    \label{fig: datapath_originale}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{Foto/Datapath/datapath.jpg}
+    \caption{Schema del datapath finale}
     \label{fig: datapath}
 \end{figure}

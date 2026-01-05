@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.8)  5 JAN 2026 16:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.8)  5 JAN 2026 17:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -812,13 +812,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 26--30
 
  []
 
-) (Chapters/Datapath.tex
-<Foto/datapath.jpg, id=70, 908.39375pt x 1284.8pt>
-File: Foto/datapath.jpg Graphic file (type jpg)
-<use Foto/datapath.jpg>
-Package pdftex.def Info: Foto/datapath.jpg  used on input line 7.
+) [1] (Chapters/Datapath.tex
+<Foto/Datapath/datapath_originale.jpg, id=76, 908.39375pt x 1284.8pt>
+File: Foto/Datapath/datapath_originale.jpg Graphic file (type jpg)
+<use Foto/Datapath/datapath_originale.jpg>
+Package pdftex.def Info: Foto/Datapath/datapath_originale.jpg  used on input line 11.
 (pdftex.def)             Requested size: 384.11221pt x 543.27837pt.
-) [1] [2 <./Foto/datapath.jpg>] (main.aux)
+<Foto/Datapath/datapath.jpg, id=77, 908.39375pt x 1284.8pt>
+File: Foto/Datapath/datapath.jpg Graphic file (type jpg)
+<use Foto/Datapath/datapath.jpg>
+Package pdftex.def Info: Foto/Datapath/datapath.jpg  used on input line 18.
+(pdftex.def)             Requested size: 384.11221pt x 543.27837pt.
+) [2 <./Foto/Datapath/datapath_originale.jpg>] [3 <./Foto/Datapath/datapath.jpg>] (main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
@@ -827,17 +832,17 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: AB3D13FE6100C316525F78DB847E5674;186.
  ) 
 Here is how much of TeX's memory you used:
- 30880 strings out of 467871
- 618340 string characters out of 5418376
- 1048242 words of memory out of 5000000
- 59251 multiletter control sequences out of 15000+600000
- 635919 words of font info for 72 fonts, out of 8000000 for 9000
+ 30892 strings out of 467871
+ 618771 string characters out of 5418376
+ 1048307 words of memory out of 5000000
+ 59260 multiletter control sequences out of 15000+600000
+ 636265 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,7n,118p,538b,468s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\giraf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/giraf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/giraf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/giraf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/giraf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/giraf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on main.pdf (4 pages, 410446 bytes).
+ 98i,7n,118p,538b,466s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\giraf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/giraf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/giraf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/giraf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/giraf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/giraf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/giraf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on main.pdf (5 pages, 506740 bytes).
 PDF statistics:
- 111 PDF objects out of 1000 (max. 8388607)
- 9 named destinations out of 1000 (max. 500000)
- 183 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 123 PDF objects out of 1000 (max. 8388607)
+ 11 named destinations out of 1000 (max. 500000)
+ 188 words of extra memory for PDF output out of 10000 (max. 10000000)
 
