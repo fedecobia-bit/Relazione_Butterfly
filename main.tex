@@ -1,0 +1,87 @@
+\documentclass{article}
+% Per inserire delle immagini
+\usepackage{graphicx,wrapfig}
+% Language setting
+\usepackage[english]{babel}
+% per inserire i simboli matematici
+\usepackage{amsmath}
+\usepackage{amssymb}
+% Per includere degli eventuali link
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks = true, 
+    linkcolor = black,
+    urlcolor = blue
+    %allcolors = black
+}
+% Impostazioni della pagina
+\usepackage{geometry}
+\geometry{
+    a4paper,
+    top = 2cm,
+    bottom = 2cm,
+    left = 1.5cm,
+    right = 1.5cm,
+    marginparwidth = 1cm
+}
+% Roba
+\usepackage{multirow}
+\usepackage[utf8]{inputenc}
+\usepackage{verbatim}
+\usepackage[cc]{titlepic}
+\usepackage{physics}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[subfigure]{tocloft}
+\usepackage[most]{tcolorbox}
+\usepackage[bottom]{footmisc}
+\usepackage{array}
+\usepackage{float}
+
+\input{Style/Frontespizio}
+\begin{document}
+\maketitle
+\pagenumbering{Roman}
+\setcounter{page}{1}
+
+% Permette di inserire numeri romani nel testo -> \rom{3} = III
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+% le subsubsections nell'indice le rende le lettere dell'alfabeto
+\renewcommand{\thesubsubsection}{\alph{subsubsection}.}
+\setcounter{secnumdepth}{3}
+
+% Per usarlo \begin(myquote)
+\newtcolorbox{myquote}[1][]{%
+    colback=black!5,
+    colframe=black!5,
+    notitle,
+    sharp corners,
+    borderline west={2pt}{0pt}{red!80!black},
+    enhanced,
+    breakable,
+}
+
+% Crea l'indice
+\newpage
+\renewcommand{\contentsname}{Table of contents}
+\tableofcontents % Creazione indice
+\setcounter{page}{2}
+% Inizio del vero e proprio documento
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\input{Chapters/Lab1.tex}
+\input{Chapters/Lab2.tex}
+\input{Chapters/Lab3.tex}
+\input{Chapters/Lab4.tex}
+\input{Chapters/Lab5.tex}
+
+% \bibliographystyle{ieeetr}
+% \bibliography{sample}
+% \addcontentsline{toc}{section}{References}
+
+\end{document}
