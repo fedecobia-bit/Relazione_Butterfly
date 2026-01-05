@@ -1,10 +1,30 @@
-% \textit{Fig. \ref{fig: 2D_power_vs_current}}
-
 \section{Datapath}
+
+\noindent Dopo aver stimato e valutato il tempo di vita delle variabili si è iniziato a progettare il datapath necessario a
+svolgere tutte le operazioni richieste della CU.
+Il primo datapath studiato è rappresentato in \textit{Fig. \ref{fig: datapath_originale}}.
+Come si vede dallo schema non è stato apportato ancora nessun miglioramento volto all'ottimizzazione del numero di BUS e/o al
+loro parallelismo.
+
+Successivamente si è preso come riferimento il Data Flow Diagram (DFD) e si sono apportate delle migliorie per ciò che concerne
+l'efficienza dello schema circuitale.
+Come si vede da \textit{Fig. \ref{fig: datapath}} il register file è stato mantenuto e tutti i segnali che devono entrare all'interno
+del Datapath passano attraverso di esso.
+A valle sono stati inseriti dei MUX con lo scopo di selezionare i vari dati da mandare ai blocchi logici.
+Dal DFD è chiaramente visibile il fatto che i vari segnali, durante il loro tempo di vita, entreranno solo in specifici blocchi
+logici, risulta perciò superfluo e deleterio avere dei collegamenti (BUS) tra ogni uscita del register file e ogni blocco logico.
+Dao che l'uscita di un blocco logico potrebbe dover essere riutilizzata in uno step successivo
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\textwidth]{Foto/datapath.jpg}
-    \caption{Schema del datapath}
+    \includegraphics[width=0.75\textwidth]{Foto/Datapath/datapath_originale.jpg}
+    \caption{Schema del datapath iniziale}
+    \label{fig: datapath_originale}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{Foto/Datapath/datapath.jpg}
+    \caption{Schema del datapath finale}
     \label{fig: datapath}
 \end{figure}
