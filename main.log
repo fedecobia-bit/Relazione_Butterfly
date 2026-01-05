@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.8)  5 JAN 2026 17:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.8)  5 JAN 2026 17:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -828,8 +828,15 @@ Package pdftex.def Info: Foto/Datapath/datapath.jpg  used on input line 18.
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
  ***********
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: AB3D13FE6100C316525F78DB847E5674;186.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: AE8225D6BF4D93AC3F348FB3929A5614;188
+(rerunfilecheck)             After:  AB3D13FE6100C316525F78DB847E5674;186.
  ) 
 Here is how much of TeX's memory you used:
  30892 strings out of 467871
