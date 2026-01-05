@@ -367,6 +367,17 @@ INPUT .\Chapters\Introduzione.tex
 INPUT .\Chapters\Introduzione.tex
 INPUT Chapters\Introduzione.tex
 INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1000.tfm
+INPUT .\Chapters\DataFlowDiagram.tex
+INPUT .\Chapters\DataFlowDiagram.tex
+INPUT Chapters\DataFlowDiagram.tex
+INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
+INPUT .\Foto\DataFlowDiagram\BlocchiDataFlowDiagram.jpg
+INPUT .\Foto\DataFlowDiagram\BlocchiDataFlowDiagram.jpg
+INPUT .\Foto\DataFlowDiagram\BlocchiDataFlowDiagram.jpg
+INPUT .\Foto\DataFlowDiagram\BlocchiDataFlowDiagram.jpg
+INPUT .\Foto\DataFlowDiagram\BlocchiDataFlowDiagram.jpg
+INPUT .\Foto\DataFlowDiagram\BlocchiDataFlowDiagram.jpg
+INPUT .\Foto\DataFlowDiagram\BlocchiDataFlowDiagram.jpg
 INPUT .\Chapters\Datapath.tex
 INPUT .\Chapters\Datapath.tex
 INPUT Chapters\Datapath.tex
@@ -394,6 +405,8 @@ INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\c
 INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
 INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
 INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
+INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
+INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
 INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
 INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
 INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
