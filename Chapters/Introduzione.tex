@@ -1,1 +1,32 @@
 \section{Introduzione}
+
+\noindent La FFT (Fast Fourier Transform) è un'operazione fondamentale per tutti i sistemi di elaborazione dei segnali digitali.
+È utilizzata nelle telecomunicazioni, nell'elaborazione audio e nei sistemi embedded ad alte prestazioni.
+L'algoritmo FFT si basa sull'operazione butterfly, che è una struttura di manipolazione dei dati che esegue combinazioni lineari di dati complessi mediante somma, 
+sottrazione e moltiplicazione con coefficienti complessi.\par
+
+Lo scopo di questo progetto è progettare un'unità di elaborazione dedicata per eseguire la Butterfly FFT, utilizzando tecniche di microprogrammazione e considerando
+vincoli realistici dell'architettura hardware. Più specificamente, questo progetto si occupa della gestione di dati complessi in una rappresentazione frazionaria a complemento a due di
+24 bit, dell'uso della Scansione in Virgola Mobile a Blocco Incondizionata per gestire il sovraccarico e dell'implementazione di un datapath ottimizzato dati
+i vincoli di risorse computazionali limitate e pipeline interna.
+Il lavoro include la derivazione del diagramma di flusso dei dati dell'algoritmo, l'ottimizzazione del datapath e dell'unità di controllo, la completa descrizione dell'architettura
+in VHDL e la verifica funzionale attraverso simulazioni. Infine, la Butterfly implementata deve essere utilizzata come blocco di base per l'implementazione e il collaudo di una FFT 16x16, 
+che ne dimostra la validità e la scalabilità della soluzione.
+
+\par\noindent Per creare la singola butterfly sono stati seguiti i seguenti passi:
+
+\begin{itemize}
+    \item Creazione del Data Flow Diagram
+    \item Stima del tempo di vita delle variabili
+    \item Creazione del Datapath
+    \item Creazione della Control Unit (CU)
+    \item Test finali
+\end{itemize}
+
+\noindent Data la necessità di utilizzare diversi blocchi logici quali moltiplicatori, sommatori, sottrattori, registri e multiplexer sono state eseguite delle simulazioni intermedie rispetto
+ai punti appena descritti per facilitare il lavoro di debug.
+Si è proceduto nel modo descritto i quanto è da preferire rispetto ad un approccio "trial and error" dove tutti i blocchi non vengono testati e si procede solamente al test finale della butterfly.
+Nel caso fosse stata scelta questa strategia progettuale sarebbe stato pressoché impossibile andare a trovare dove fosse l'errore nel caso si fosse verificato qualche malfunzionamento.\\
+
+\noindent Una volta completata la singola butterfly è stato creato il processore che esegue la FFT unendo tra loro le varie unità necessarie per adempiere alla richiesta finale del progetto.
+Una volta implementato il tutto il sistema è stato testato nella sua interezza per constatare l'effettivo funzionamento.
