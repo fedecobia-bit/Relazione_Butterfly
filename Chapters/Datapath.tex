@@ -13,7 +13,11 @@ del Datapath passano attraverso di esso.
 A valle sono stati inseriti dei MUX con lo scopo di selezionare i vari dati da mandare ai blocchi logici.
 Dal DFD è chiaramente visibile il fatto che i vari segnali, durante il loro tempo di vita, entreranno solo in specifici blocchi
 logici, risulta perciò superfluo e deleterio avere dei collegamenti (BUS) tra ogni uscita del register file e ogni blocco logico.
-Dao che l'uscita di un blocco logico potrebbe dover essere riutilizzata in uno step successivo
+Dato che l'uscita di un blocco logico potrebbe dover essere riutilizzata in uno step successivo si è fatto uso di registri intermedi
+che permettono di memorizzare e di riportare il dato in ingresso quando risulta necessario.
+Ciò è conveniente in quanto, facendo in questo modo, si risparmiano molte scritture su BUS che risultano essere lente e dispendiose
+in termini energetici.
+Infine, è stato esplicitato il blocco ROM Rounding che serve per arrotondare.
 
 \begin{figure}[H]
     \centering
@@ -28,3 +32,67 @@ Dao che l'uscita di un blocco logico potrebbe dover essere riutilizzata in uno s
     \caption{Schema del datapath finale}
     \label{fig: datapath}
 \end{figure}
+
+\subsection{ROM Rounding}
+
+\noindent Come richiesto nella consegna del progetto per avere un uscita nel formato Q1.23 è necessario fare uso del ROM rounding.
+Questa tecnica consiste nell'arrotondare gli N bit in ingresso al blocco arrotondatore con una look-up-table salvata all'interna
+di una memoria ROM.
+Per leggere i dati presenti all'interno della memoria sarà necessario fornire all'ingresso un indirizzo.
+La scelta del numero di bit dell'indirizzo, e conseguentemente del numero di celle della memoria, è una scelta critica per il
+progetto in quanto un indirizzo di pochi bit consente di avere una memoria piccola (e che quindi richiede poco spazio su Silicio)
+ma permette un arrotondamento peggio.
+Nel caso sia necessario ottenere un arrotondamento più preciso, e quindi con errore minore, allora risulta obbligatorio aumentare
+il numero di bit di indirizzo per permettere l'indirizzamento di più celle di memoria.
+Considerando che si volevano salvare 5 bit per riga è stato scelto come numero di bit per l'indirizzo 5.
+Si riporta di seguito una tabella che mette in relazione il numero di bit dell'indirizzo con il numero di righe dell ROM e con il
+numero di bit totali da memorizzare.
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        bit indirizzo  & righe ROM & bit totali \\ \hline
+        3 & 8   & 40\\ \hline
+        5 & 32  & 160\\ \hline
+        7 & 128 & 640\\ \hline
+        9 & 512 & 2560\\ \hline
+    \end{tabular}
+    \caption{Relazione tra il numero di bit di indirizzo della ROM, il numero di righe ed il numero totale di bit memorizzati}
+    \label{tab: indirizzo_righe_bit}
+\end{table}
+
+\noindent Bisogna anche considerare il bias e l'errore medio.
+Avendo come specifica di progetto l'utilizzo del metodo "Round to Nearest Even" si è dovuto scegliere un indirizzo composto da un
+numero di bit della mantissa e bit di scarto disposti in maniera tale da minimizzare sia il bias che l'errore.
+Di seguito si riportano i test effettuati:
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        bit indirizzo  & bias & errore \\ \hline
+        3 &   & \\ \hline
+        5 &   & \\ \hline
+        7 &   & \\ \hline
+        9 &   & \\ \hline
+    \end{tabular}
+    \caption{Relazione tra il numero di bit di indirizzo della ROM, il bias e l'errore}
+    \label{tab: indirizzo_bias_errore}
+\end{table}
+
+\noindent Dopo aver considerato tutte le opzioni, sia dal lato di area occupata che dal lato bias/errore, è stato scelto di comporre
+l'indirizzo della ROM con gli ultimi 3 bit della mantissa (LSB mantissa) e con i primi 2 bit dello scarto (MSB scarto).
+Si riporta in \textit{Fig. \ref{fig: ROM_rounding}} lo schema del ROM rounding implementato.
+Si può apprezzare la presenza della ROM, un registro posto in ingresso e uno in uscita usati per rendere i dati disponibili sul
+fronte del clock dato che la ROM è puramente combinatoria e, infine, il parallelismo dei bus espresso col numero di fianco al bus
+stesso.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{Foto/Datapath/ROM_rounding.jpg}
+    \caption{Schema del ROM rounding implementato}
+    \label{fig: ROM_rounding}
+\end{figure}
+
+\pagebreak
