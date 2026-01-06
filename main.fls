@@ -7,6 +7,9 @@ INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\tex\latex\base\size10.clo
 INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\tex\latex\base\size10.clo
 INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\tex\latex\base\size10.clo
+INPUT .\tex\Pacchetti.tex
+INPUT .\tex\Pacchetti.tex
+INPUT tex\Pacchetti.tex
 INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\tex\latex\graphics\graphicx.sty
 INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\tex\latex\graphics\graphicx.sty
 INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\tex\latex\graphics\keyval.sty
@@ -290,6 +293,9 @@ INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\tex\latex\tools\array.sty
 INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\tex\latex\tools\array.sty
 INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\tex\latex\float\float.sty
 INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\tex\latex\float\float.sty
+INPUT .\tex\Personalizzazione.tex
+INPUT .\tex\Personalizzazione.tex
+INPUT tex\Personalizzazione.tex
 INPUT .\Style\Frontespizio.tex
 INPUT .\Style\Frontespizio.tex
 INPUT .\Style\Frontespizio.tex
@@ -413,6 +419,12 @@ INPUT .\Foto\Datapath\ROM_rounding.jpg
 INPUT .\Chapters\ControlUnit.tex
 INPUT .\Chapters\ControlUnit.tex
 INPUT Chapters\ControlUnit.tex
+INPUT .\Chapters\Appendice.tex
+INPUT .\Chapters\Appendice.tex
+INPUT Chapters\Appendice.tex
+INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmtt10.tfm
+INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmtt9.tfm
+INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr9.tfm
 INPUT main.aux
 INPUT .\main.out
 INPUT .\main.out
@@ -430,5 +442,9 @@ INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\c
 INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
 INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr17.pfb
 INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr17.pfb
+INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr5.pfb
+INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr5.pfb
 INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmti10.pfb
 INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmti10.pfb
+INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmtt9.pfb
+INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmtt9.pfb

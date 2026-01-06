@@ -1,0 +1,8 @@
+{
+  "version": "0.2",
+  "language": "en,it",
+  "words": [ "Arrotondatore"],
+  "ignoreRegExpList": [
+    "\\\\begin\\{lstlisting\\}[\\s\\S]*?\\\\end\\{lstlisting\\}"
+  ]
+}

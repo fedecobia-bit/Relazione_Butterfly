@@ -1,0 +1,76 @@
+\geometry{
+    a4paper,
+    top = 2cm,
+    bottom = 2cm,
+    left = 1.5cm,
+    right = 1.5cm,
+    marginparwidth = 1cm
+}
+
+\lstdefinelanguage{VHDL}{
+  keywords={entity, architecture, begin, end, signal, process, if, then, else,
+            elsif, case, when, others, port, map, generic, in, out, std_logic,
+            std_logic_vector,
+            library, use, entity, architecture, is, begin, end,
+            generic, port, map, component, configuration,
+            signal, variable, constant, subtype, type, file,
+            integer, natural, positive,
+            real, time, boolean, bit, bit_vector,
+            std_logic, std_logic_vector,
+            signed, unsigned,
+            in, out, inout, buffer,
+            process, wait, until, loop, for, while, exit, next,
+            if, then, else, elsif,
+            case, when, others,
+            assert, report, severity,
+            rising_edge, falling_edge,
+            and, or, nand, nor, xor, xnor, not,
+            abs, mod, rem,
+            sll, srl, sla, sra, rol, ror,
+            to_integer, to_unsigned, to_signed,
+            resize, std_logic_arith, numeric_std,
+            event, stable, quiet, transaction,
+            last_event, last_value, driving, active,
+            generate, for, if, label,
+            open, range, downto, to,
+            alias, shared, disconnect, guarded,
+            transport, inertial, reject
+  },
+  sensitive=true,
+  comment=[l]--,
+  morecomment=[s]{/*}{*/},
+  morestring=[b]"
+}
+\lstset{
+  language=VHDL,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{red},
+  numbers=left,
+  numberstyle=\tiny,
+  stepnumber=1,
+  frame=single,
+  breaklines=true,
+  captionpos=b
+}
+
+% Permette di inserire numeri romani nel testo -> \rom{3} = III
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+% le subsubsections nell'indice le rende le lettere dell'alfabeto
+\renewcommand{\thesubsubsection}{\alph{subsubsection}.}
+\setcounter{secnumdepth}{3}
+
+% Per usarlo \begin(myquote)
+\newtcolorbox{myquote}[1][]{%
+    colback=black!5,
+    colframe=black!5,
+    notitle,
+    sharp corners,
+    borderline west={2pt}{0pt}{red!80!black},
+    enhanced,
+    breakable,
+}
