@@ -1,6 +1,236 @@
 \section{Appendice}
 
-\begin{lstlisting}[caption={Rounding\_single\_clock}]
+% Per facilitar questo è il da usare per scrivere il codice:
+% 1) Lasciare all'inizio il nome dei componenti del gruppo
+% 2) Cambiare il nome nella caption ___ se è un test bench chiamarlo TB***
+% 								  |__ se è un normale chiamarlo col suo nome
+%
+% Per utilizzare il codice basta copiare e incollare la roba dentro \begin{comment}\end{comment}
+\begin{comment}
+
+\begin{lstlisting}[caption={TBROM}]
+-- Federico Cobianchi - 332753
+-- Onice Mazzi - 359754
+-- Antonio Telmon - 353781
+
+\end{lstlisting}
+
+\end{comment}
+
+\subsection{Sommatore}
+
+\begin{lstlisting}[caption={Sommatore}]
+-- Federico Cobianchi - 332753
+-- Onice Mazzi - 359754
+-- Antonio Telmon - 353781
+
+library IEEE;
+use IEEE.std_logic_1164.all; 
+use IEEE.numeric_std.all;
+
+
+entity BFLY_ADDER is
+	port (	A:	in	STD_LOGIC_VECTOR (48 downto 0);
+		B:	in	STD_LOGIC_VECTOR (48 downto 0);
+		CK:	in	STD_LOGIC;
+		SUM_OUT:	out	STD_LOGIC_VECTOR(48 downto 0)
+		);
+end BFLY_ADDER;
+
+
+architecture behavioral of BFLY_ADDER is 
+
+	signal sum: STD_LOGIC_VECTOR (48 downto 0) := (others=>'0');
+	
+	begin
+	
+	sum <= std_logic_vector(signed(A)+signed(B)); 
+
+		PSYNCH: process(CK)
+		begin
+			if CK'event and CK='1' then -- positive edge triggered:
+				SUM_OUT <= sum;
+			
+			end if;
+		end process;
+
+end behavioral;
+\end{lstlisting}
+
+\subsection{MUX}
+
+\subsubsection{MUX 2}
+
+\begin{lstlisting}[caption={MUX 2}]
+-- Federico Cobianchi - 332753
+-- Onice Mazzi - 359754
+-- Antonio Telmon - 353781
+
+library IEEE;
+use IEEE.std_logic_1164.all; 
+
+entity MUX_2 is
+	generic(
+		bus_length: INTEGER:= 24
+	);
+	port (	A,B:	in	STD_LOGIC_VECTOR ((bus_length-1) downto 0);
+		S: in STD_LOGIC;
+		Q:	out	STD_LOGIC_VECTOR((bus_length-1) downto 0));
+end MUX_2;
+
+
+architecture behavioral of MUX_2 is 
+
+begin
+
+	Q <= A when S = '1' else B;
+
+end behavioral;
+\end{lstlisting}
+
+\subsubsection{MUX 3}
+
+\begin{lstlisting}[caption={MUX 3}]
+-- Federico Cobianchi - 332753
+-- Onice Mazzi - 359754
+-- Antonio Telmon - 353781
+
+library IEEE;
+use IEEE.std_logic_1164.all; 
+
+entity MUX_3 is
+	generic(
+		bus_length: INTEGER:= 49
+	);
+	port (	A,B,C:	in	STD_LOGIC_VECTOR ((bus_length-1) downto 0);
+		S: in STD_LOGIC_VECTOR (1 downto 0);	
+		Q:	out	STD_LOGIC_VECTOR((bus_length-1) downto 0));
+end MUX_3;
+
+
+architecture behavioral of MUX_3 is
+
+begin
+
+	p_mux: process (S, A, B, C)
+	begin
+	case S is
+		when "00" => 
+			Q <= A;
+		when "01" => 
+			Q <= B;
+		when "10" => 
+			Q <= C;
+		when "11" => 
+			Q <= (others=>'0');
+		when others => 
+			Q <= (others=>'0');
+	end case;
+	end process;
+
+end behavioral;
+\end{lstlisting}
+
+\subsection{Sottrattore}
+
+\begin{lstlisting}[caption={Sottrattore}]
+-- Federico Cobianchi - 332753
+-- Onice Mazzi - 359754
+-- Antonio Telmon - 353781
+
+library IEEE;
+use IEEE.std_logic_1164.all; 
+use IEEE.numeric_std.all;
+
+
+entity BFLY_SUBTRACTOR is
+	port (	A:	in	STD_LOGIC_VECTOR (48 downto 0);
+		B:	in	STD_LOGIC_VECTOR (48 downto 0);
+		CK:	in	STD_LOGIC;
+		DIFF_OUT:	out	STD_LOGIC_VECTOR(48 downto 0)
+		);
+end BFLY_SUBTRACTOR;
+
+
+architecture behavioral of BFLY_SUBTRACTOR is 
+
+	signal diff: STD_LOGIC_VECTOR (48 downto 0) := (others=>'0');
+	
+	begin
+	
+	diff <= std_logic_vector(signed(A)-signed(B)); 
+
+		PSYNCH: process(CK)
+		begin
+			if CK'event and CK='1' then -- positive edge triggered:
+				DIFF_OUT <= diff;
+			
+			end if;
+		end process;
+
+end behavioral;
+\end{lstlisting}
+
+\subsection{Moltiplicatore/Shifter}
+
+\begin{lstlisting}[caption={Moltiplicatore/Shifter}]
+-- Federico Cobianchi - 332753
+-- Onice Mazzi - 359754
+-- Antonio Telmon - 353781
+
+library IEEE;
+use IEEE.std_logic_1164.all; 
+use IEEE.numeric_std.all;
+
+
+entity BFLY_MULTIPLIER is
+	port (	A:	in	STD_LOGIC_VECTOR (23 downto 0);
+		B:	in	STD_LOGIC_VECTOR (23 downto 0);
+		SHIFT: in STD_LOGIC;
+		CK:	in	STD_LOGIC;
+		S_OUT:	out	STD_LOGIC_VECTOR(48 downto 0);
+		M_OUT:	out	STD_LOGIC_VECTOR(48 downto 0)
+		);
+end BFLY_MULTIPLIER;
+
+
+architecture behavioral of BFLY_MULTIPLIER is 
+
+	signal op_A, op_B: STD_LOGIC_VECTOR (23 downto 0) := (others=>'0');
+	signal product: STD_LOGIC_VECTOR (47 downto 0) := (others=>'0');
+	signal S_OUT_tmp,M_OUT_tmp: STD_LOGIC_VECTOR (47 downto 0) := (others=>'0');
+	signal S_OUT_trunc,M_OUT_trunc: STD_LOGIC_VECTOR (46 downto 0) := (others=>'0');
+	
+	begin
+	
+	op_A <= A;
+	op_B <= "000000000000000000000010" when SHIFT = '1' else B;
+	product <= std_logic_vector(signed(op_A)*signed(op_B));
+	S_OUT_trunc <= S_OUT_tmp(46 downto 0);
+	M_OUT_trunc <= M_OUT_tmp(46 downto 0);
+	S_OUT <=  '0' & '0' & S_OUT_trunc;
+	M_OUT <= '0' & '0' & M_OUT_trunc;
+	
+	
+		PSYNCH: process(CK)
+		begin
+			if CK'event and CK='1' then -- positive edge triggered:
+				S_OUT_tmp <= product;
+				M_OUT_tmp <= S_OUT_tmp;
+			
+			end if;
+		end process;
+
+end behavioral;
+\end{lstlisting}
+
+\subsection{ROM rounding}
+
+\begin{lstlisting}[caption={ROM rounding completo}]
+-- Federico Cobianchi - 332753
+-- Onice Mazzi - 359754
+-- Antonio Telmon - 353781
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -16,7 +246,7 @@ entity rounding is
 	);
 end entity;
 
--- Architecture del blocco rounding
+-- Architecture del rounding
 architecture behavioural of rounding is
 
 	--=============================================---
@@ -39,7 +269,7 @@ architecture behavioural of rounding is
 	end component;
 	
 	--=============================================---
-	-- Segnali interni al blocco rounding
+	-- Segnali interni al rounding
 	--=============================================---
 	
 	signal mantissa : std_logic_vector(23 downto 0):= (others=>'0');
@@ -70,7 +300,7 @@ begin
 		address => address_memory,
 		memory_out => dummy_memory_out
 	);
-		
+	
 	
 	--=============================================---
     -- Shift senza processo logico (non impiega colpi di clock)
@@ -99,4 +329,1551 @@ begin
 	reg_in <= mantissa(23 downto 3) & dummy_memory_out; -- 21 bit di mantissa & 3 bit arrotondamento
 	
 end architecture behavioural;
+\end{lstlisting}
+
+\begin{lstlisting}[caption={TB\_ROUNDING}]
+-- Federico Cobianchi - 332753
+-- Onice Mazzi - 359754
+-- Antonio Telmon - 353781
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+-- Creazione entity
+entity tb_rounding is
+end entity;
+
+-- Architettura del TB
+architecture sim of tb_rounding is
+
+    signal Clock        : std_logic := '0';
+    signal rounding_in  : std_logic_vector(48 downto 0);
+    signal rounding_out : std_logic_vector(23 downto 0);
+	signal shift_signal: std_logic := '0';
+	 
+    constant Tclk : time := 10 ns; -- 10ns -> 100MHz
+
+begin
+
+	--=============================================---
+	-- Port map
+	--=============================================---
+    DUT : entity work.rounding
+        port map (
+            Clock        => Clock,
+            rounding_in  => rounding_in,
+            rounding_out => rounding_out,
+				shift_signal => shift_signal
+        );
+
+    clk_proc : process
+    begin
+        Clock <= '0';
+        wait for Tclk/2;
+        Clock <= '1';
+        wait for Tclk/2;
+    end process;
+
+    stim_proc : process
+    begin
+        rounding_in <= "1100101110101110110110000010001110010110011100111";
+		shift_signal <= '1';
+        wait for Tclk;
+        rounding_in <= "1000111110100101110100001100101100111111001111000";
+		shift_signal <= '1';
+        wait for Tclk;
+		rounding_in <= "0001011101011011101000101111101110011101001000000";
+		shift_signal <= '0';
+        wait for Tclk;
+        rounding_in <= "1000010011010101101000100011100111010111000101101";
+		shift_signal <= '1';
+        wait for Tclk;
+		rounding_in <= "1100001011110000100110011110010100000111110110100";
+		shift_signal <= '1';
+        wait for Tclk;
+		rounding_in <= "0101010010100110000110101011100101011001111111011";
+		shift_signal <= '0';
+        wait for Tclk;
+		rounding_in <= "1101101010011110100111101101101101110111100011011";
+		shift_signal <= '1';
+        wait for Tclk;
+		rounding_in <= "0000110001110011000110100111001000011001111101011";
+		shift_signal <= '0';
+        wait for Tclk;
+		rounding_in <= "1101010100101011010101000000111001110110111010011";
+		shift_signal <= '1';
+        wait for Tclk;
+		rounding_in <= "1011001001010000110100111010111110011011101111100";
+		shift_signal <= '1';
+        wait for Tclk;
+		rounding_in <= "0001001001100001011111100111101001000011001100100";
+		shift_signal <= '0';
+        wait for Tclk;
+        rounding_in <= "1111111111111111111111111111111111111111111111111";
+		shift_signal <= '1';
+        wait for Tclk;
+
+        wait;
+    end process;
+
+end architecture sim;
+\end{lstlisting}
+
+\subsubsection{ROM}
+
+\begin{lstlisting}[caption={ROM}]
+-- Federico Cobianchi - 332753
+-- Onice Mazzi - 359754
+-- Antonio Telmon - 353781
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+
+-- Creazione entity
+entity ROM is
+	port(
+		address : IN std_logic_vector(4 downto 0);
+		memory_out: OUT std_logic_vector(2 downto 0)
+	);
+end entity;
+
+-- Architecture della ROM
+architecture ROM_rounding of ROM is
+
+	-- Spazio per segnali interni
+
+begin
+
+selection: process(address)
+begin
+
+if address = "00000" then
+	memory_out <= "000";
+elsif address = "00001" then
+	memory_out <= "000";
+elsif address = "00010" then
+	memory_out <= "000";
+elsif address = "00011" then
+	memory_out <= "001";
+elsif address = "00100" then
+	memory_out <= "001";
+elsif address = "00101" then
+	memory_out <= "001";
+elsif address = "00110" then
+	memory_out <= "010";
+elsif address = "00111" then
+	memory_out <= "010";
+elsif address = "01000" then
+	memory_out <= "010";
+elsif address = "01001" then
+	memory_out <= "010";
+elsif address = "01010" then
+	memory_out <= "010";
+elsif address = "01011" then
+	memory_out <= "011";
+elsif address = "01100" then	
+	memory_out <= "011";
+elsif address = "01101" then
+	memory_out <= "011";
+elsif address = "01110" then
+	memory_out <= "100";
+elsif address = "01111" then
+	memory_out <= "100";
+elsif address = "10000" then
+	memory_out <= "100";
+elsif address = "10001" then
+	memory_out <= "100";
+elsif address = "10010" then
+	memory_out <= "100";
+elsif address = "10011" then
+	memory_out <= "101";
+elsif address = "10100" then
+	memory_out <= "101";
+elsif address = "10101" then
+	memory_out <= "101";
+elsif address = "10110" then
+	memory_out <= "110";
+elsif address = "10111" then
+	memory_out <= "110";
+elsif address = "11000" then
+	memory_out <= "110";
+elsif address = "11001" then
+	memory_out <= "110";
+elsif address = "11010" then
+	memory_out <= "110";
+elsif address = "11011" then
+	memory_out <= "111";
+elsif address = "11100" then
+	memory_out <= "111";
+elsif address = "11101" then
+	memory_out <= "111";
+elsif address = "11110" then
+	memory_out <= "111";
+elsif address = "11111" then
+	memory_out <= "111";
+end if;
+
+end process;
+
+end architecture ROM_rounding;
+\end{lstlisting}
+
+\begin{lstlisting}[caption={TB\_ROM}]
+-- Federico Cobianchi - 332753
+-- Onice Mazzi - 359754
+-- Antonio Telmon - 353781
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity TBROM is
+end entity;
+
+architecture sim of TBROM is
+
+    signal address  : std_logic_vector(4 downto 0);
+    signal memory_out : std_logic_vector(2 downto 0);
+
+begin
+
+	--=============================================---
+	-- Port map
+	--=============================================---
+    DUT: entity work.ROM
+        port map (
+            address  => address,
+            memory_out => memory_out
+        );
+
+    stim_proc: process
+    begin
+        for i in 0 to 31 loop
+            address <= std_logic_vector(to_unsigned(i, 5));
+            wait for 10 ns;
+        end loop;
+
+        wait;
+    end process;
+
+end architecture sim;
+\end{lstlisting}
+
+\subsection{Datapath}
+
+\begin{lstlisting}[caption={Datapath}]
+-- Federico Cobianchi - 332753
+-- Onice Mazzi - 359754
+-- Antonio Telmon - 353781
+
+
+library IEEE;
+use IEEE.std_logic_1164.all; --  libreria IEEE con definizione tipi standard logic
+use IEEE.numeric_std.all;
+
+
+entity bfly_datapath is
+port( 
+	Br_in, Bi_in, Ar_in, Ai_in, Wr_in, Wi_in : in STD_LOGIC_VECTOR (23 downto 0);
+	Clock, START, SF_2H_1L : in STD_LOGIC;
+	Br_out, Bi_out, Ar_out, Ai_out : out STD_LOGIC_VECTOR (23 downto 0);
+	DONE : out STD_LOGIC
+);
+end	bfly_datapath;
+
+---------------------------------------------
+
+architecture structural of bfly_datapath is
+	
+	--=============================================---
+	--Inizializzazione componenti
+	--=============================================---
+	
+	--Multiplier
+	component BFLY_MULTIPLIER is
+	port (	A:	in	STD_LOGIC_VECTOR (23 downto 0);
+		B:	in	STD_LOGIC_VECTOR (23 downto 0);
+		SHIFT: in STD_LOGIC;
+		CK:	in	STD_LOGIC;
+		S_OUT:	out	STD_LOGIC_VECTOR(48 downto 0);
+		M_OUT:	out	STD_LOGIC_VECTOR(48 downto 0)
+		);
+	end component;
+	
+	--Adder
+	component BFLY_ADDER is
+	port (	A:	in	STD_LOGIC_VECTOR (48 downto 0);
+		B:	in	STD_LOGIC_VECTOR (48 downto 0);
+		CK:	in	STD_LOGIC;
+		SUM_OUT:	out	STD_LOGIC_VECTOR(48 downto 0)
+		);
+	end component;
+
+	--Sottrattore
+	component BFLY_SUBTRACTOR is
+	port (	A:	in	STD_LOGIC_VECTOR (48 downto 0);
+		B:	in	STD_LOGIC_VECTOR (48 downto 0);
+		CK:	in	STD_LOGIC;
+		DIFF_OUT:	out	STD_LOGIC_VECTOR(48 downto 0)
+		);
+	end component;
+	
+	--Registro FF con enable
+	component FD is
+	generic(
+		bus_length: INTEGER:= 24
+	);
+	port (	D:	in	STD_LOGIC_VECTOR ((bus_length-1) downto 0);
+		E: in STD_LOGIC;	--ENABLE attivo alto
+		CK:	in	STD_LOGIC;
+		Q:	out	STD_LOGIC_VECTOR((bus_length-1) downto 0));
+	end component;
+	
+	--Flip Flop di tipo T con reset sincrono attivo alto
+	component T_FF is
+	port (	T:	in	STD_LOGIC;
+		R: in STD_LOGIC;	--RESET attivo alto
+		CK:	in	STD_LOGIC;
+		Q:	out	STD_LOGIC);
+	end component;
+
+	--Multiplexer a tre ingressi con due bit di select
+	component MUX_3 is
+	generic(
+		bus_length: INTEGER:= 49
+	);
+	port (	A,B,C:	in	STD_LOGIC_VECTOR ((bus_length-1) downto 0);
+		S: in STD_LOGIC_VECTOR (1 downto 0);	
+		Q:	out	STD_LOGIC_VECTOR((bus_length-1) downto 0));
+	end component;
+	
+	--Multiplexer a due ingressi con un bit di select
+	component MUX_2 is
+	generic(
+		bus_length: INTEGER:= 24
+	);
+	port (	A,B:	in	STD_LOGIC_VECTOR ((bus_length-1) downto 0);
+		S: in STD_LOGIC;
+		Q:	out	STD_LOGIC_VECTOR((bus_length-1) downto 0));
+	end component;
+	
+	--Blocco unico di shift a destra e rom rounding
+	component rounding is
+	port(
+		Clock:	IN	STD_LOGIC; -- Clock
+		rounding_in : IN std_logic_vector(48 downto 0); -- 49 bit da arrotondare
+		rounding_out: OUT std_logic_vector(23 downto 0); -- 24 bit arrotondati
+		shift_signal: IN STD_LOGIC -- segnale per shiftare
+	);
+	end component;
+	
+	--Control Unit
+	component BFLY_CU_DATAPATH is
+	port (	START:	in	STD_LOGIC;
+		SF_2H_1L: in STD_LOGIC;
+		CK:	in	STD_LOGIC;
+		INSTRUCTION_OUT:	out	STD_LOGIC_VECTOR(16 downto 0)
+		);
+	end component;
+	
+	
+	--=============================================---
+	--Dichiarazione segnali datapath
+	--=============================================---
+	
+	--Segnali uIR
+	SIGNAL dp_SHIFT_SIGNAL, dp_REG_IN, dp_SUM_REG, dp_AR_SEL, dp_BR_SEL, dp_WR_SEL, dp_MS_DIFFp, dp_AS_SUM_SEL, dp_SD_ROUND_SEL, dp_SHIFT, dp_SF_2H_1L, dp_REG_RND_BR, dp_REG_RND_BI, dp_REG_RND_AR, dp_REG_RND_AI, dp_DONE : STD_LOGIC := '0';
+	SIGNAL dp_MSD_DIFFm	: STD_LOGIC_VECTOR (1 downto 0) := (others => '0');
+	SIGNAL dp_INSTRUCTION_OUT : STD_LOGIC_VECTOR (16 downto 0) := (others => '0');
+	
+	--Ingressi al MUX di Br/Bi
+	SIGNAL dp_Br_MUX_in, dp_Bi_MUX_in : STD_LOGIC_VECTOR (23 downto 0) := (others => '0'); 
+	--Ingressi al MUX di Ar/Ai
+	SIGNAL dp_Ar_MUX_in, dp_Ai_MUX_in : STD_LOGIC_VECTOR (23 downto 0) := (others => '0'); 
+	--Ingressi al MUX di Wr/Wi
+	SIGNAL dp_Wr_MUX_in, dp_Wi_MUX_in : STD_LOGIC_VECTOR (23 downto 0) := (others => '0'); 
+	
+	--Uscite dei MUX di B, A e W
+	SIGNAL dp_B_MUX_out, dp_A_MUX_out, dp_W_MUX_out : STD_LOGIC_VECTOR (23 downto 0) := (others => '0'); 
+	
+	--Uscite e ingressi del multiplier
+	SIGNAL dp_X_MPY_in, dp_Y_MPY_in : STD_LOGIC_VECTOR (23 downto 0) := (others => '0'); 
+	SIGNAL dp_MPY_product_out, dp_MPY_shift_out : STD_LOGIC_VECTOR (48 downto 0) := (others => '0'); 
+	
+	--Uscita e ingressi dell'adder
+	SIGNAL dp_SUM_out, dp_X_SUM_in, dp_Y_SUM_in : STD_LOGIC_VECTOR (48 downto 0) := (others => '0'); 
+	
+	--Uscita e ingressi del sottrattore
+	SIGNAL dp_DIFF_out, dp_X_DIFF_in, dp_Y_DIFF_in : STD_LOGIC_VECTOR (48 downto 0) := (others => '0');
+	
+	--Uscita del registro di pipe della somma
+	SIGNAL dp_SUM_reg_out : STD_LOGIC_VECTOR (48 downto 0) := (others => '0');
+	
+	--Uscita del registro di pipe del sottrattore
+	SIGNAL dp_DIFF_reg_out : STD_LOGIC_VECTOR (48 downto 0) := (others => '0');
+	
+	--Uscita del registro di pipe del prodotto e dello shift
+	SIGNAL dp_MPY_M_reg_out, dp_MPY_S_reg_out : STD_LOGIC_VECTOR (48 downto 0) := (others => '0');
+	
+	--Ingresso 1 del multiplexer in entrata al sommatore, ovvero l'uscita del MUX di Ar/Ai con zeri aggiunti
+	SIGNAL dp_AS_A_MUX_in : STD_LOGIC_VECTOR (48 downto 0) := (others => '0');
+	--Uscita del multiplexer in entrata al sommatore
+	SIGNAL dp_AS_MUX_out : STD_LOGIC_VECTOR (48 downto 0) := (others => '0');
+
+	--Uscita del MUX A/B in ingresso al multiplier
+	SIGNAL dp_AB_MUX_out : STD_LOGIC_VECTOR (23 downto 0) := (others => '0');
+
+	--Uscita del MUX dell'ingresso positivo del sottrattore
+	SIGNAL dp_MS_MUX_out : STD_LOGIC_VECTOR (48 downto 0) := (others => '0');
+	
+	--Uscita del MUX dell'ingresso negativo del sottrattore
+	SIGNAL dp_MSD_MUX_out : STD_LOGIC_VECTOR (48 downto 0) := (others => '0');
+	
+	--Uscita del MUX dell'ingresso dello shifter a destra
+	SIGNAL dp_SD_MUX_out : STD_LOGIC_VECTOR (48 downto 0) := (others => '0');
+	
+	--Uscita del blocco shift + rom rounding
+	SIGNAL dp_ROM_round_out : STD_LOGIC_VECTOR (23 downto 0) := (others => '0');
+	
+	begin
+	
+	--=============================================---
+	--Port map dei registri a 24 bit
+	--=============================================---
+	
+	pm_regin_Br : FD
+		generic map (
+			bus_length => 24
+		)
+		port map (
+			D => Br_in,
+			E => dp_REG_IN,
+			CK => Clock,
+			Q => dp_Br_MUX_in
+	);
+	
+	pm_regin_Bi : FD
+		generic map (
+			bus_length => 24
+		)
+		port map (
+			D => Bi_in,
+			E => dp_REG_IN,
+			CK => Clock,
+			Q => dp_Bi_MUX_in
+	);
+	
+	pm_regin_Ar : FD
+		generic map (
+			bus_length => 24
+		)
+		port map (
+			D => Ar_in,
+			E => dp_REG_IN,
+			CK => Clock,
+			Q => dp_Ar_MUX_in
+	);
+	
+	pm_regin_Ai : FD
+		generic map (
+			bus_length => 24
+		)
+		port map (
+			D => Ai_in,
+			E => dp_REG_IN,
+			CK => Clock,
+			Q => dp_Ai_MUX_in
+	);
+	
+	pm_regin_Wr : FD
+		generic map (
+			bus_length => 24
+		)
+		port map (
+			D => Wr_in,
+			E => dp_REG_IN,
+			CK => Clock,
+			Q => dp_Wr_MUX_in
+	);
+	
+	pm_regin_Wi : FD
+		generic map (
+			bus_length => 24
+		)
+		port map (
+			D => Wi_in,
+			E => dp_REG_IN,
+			CK => Clock,
+			Q => dp_Wi_MUX_in
+	);
+	
+	--=============================================---
+	--Port map dei Multiplexer a due ingressi
+	--=============================================---
+	
+	pm_mux_B : MUX_2 
+	generic map (
+		bus_length => 24
+	)
+	port map (
+		A => dp_Br_MUX_in,
+		B => dp_Bi_MUX_in,
+		S => dp_BR_SEL,
+		Q => dp_B_MUX_out
+	);
+	
+	pm_mux_A : MUX_2 
+	generic map (
+		bus_length => 24
+	)
+	port map (
+		A => dp_Ar_MUX_in,
+		B => dp_Ai_MUX_in,
+		S => dp_AR_SEL,
+		Q => dp_A_MUX_out
+	);
+	
+	pm_mux_W : MUX_2 
+	generic map (
+		bus_length => 24
+	)
+	port map (
+		A => dp_Wr_MUX_in,
+		B => dp_Wi_MUX_in,
+		S => dp_WR_SEL,
+		Q => dp_W_MUX_out
+	);
+	
+	pm_mux_Mult : MUX_2 	--Multiplexer del multiplier
+	generic map (
+		bus_length => 24
+	)
+	port map (
+		A => dp_A_MUX_out,
+		B => dp_B_MUX_out,
+		S => dp_SHIFT,
+		Q => dp_AB_MUX_out
+	);
+	
+	--Ingresso 1 del multiplexer in entrata al sommatore, ovvero l'uscita del MUX di Ar/Ai
+	dp_AS_A_MUX_in (48 downto 24) <= (others => '0');	--Aggiungo zeri perche' l'uscita del MUX di Ar/Ai e' solo su 24 bit
+	dp_AS_A_MUX_in (23 downto 0) <= dp_A_MUX_out;
+	
+	pm_mux_Adder : MUX_2 	--Multiplexer dell'adder
+	generic map (
+		bus_length => 49
+	)
+	port map (
+		A => dp_AS_A_MUX_in,	--l'uscita del MUX Ar/Ai
+		B => dp_SUM_reg_out,	--l'uscita del sommatore rallentata di un colpo di Clock
+		S => dp_AS_SUM_SEL,
+		Q => dp_AS_MUX_out
+	);
+	
+	pm_mux_Sub_plus : MUX_2 	--Multiplexer dell'ingresso positivo del sottrattore
+	generic map (
+		bus_length => 49
+	)
+	port map (
+		A => dp_MPY_S_reg_out,	--l'uscita SHIFT del moltiplicatore
+		B => dp_SUM_reg_out,	--l'uscita del sommatore rallentata di un colpo di Clock
+		S => dp_MS_DIFFp,
+		Q => dp_MS_MUX_out
+	);
+	
+	pm_mux_rshift : MUX_2 	--Multiplexer dell'ingresso allo shifter a destra
+	generic map (
+		bus_length => 49
+	)
+	port map (
+		A => dp_SUM_reg_out,		--l'uscita del sommatore
+		B => dp_DIFF_reg_out,	--l'uscita del sottrattore
+		S => dp_SD_ROUND_SEL,
+		Q => dp_SD_MUX_out
+	);
+	
+	--Port map del MUX a tre ingressi
+	pm_mux_Sub_minus : MUX_3 	--Multiplexer dell'ingresso negativo del sottrattore
+	generic map (
+		bus_length => 49
+	)
+	port map (
+		A => dp_MPY_M_reg_out,			--l'uscita MPY del moltiplicatore rallentata di un colpo di Clock
+		B => dp_SUM_reg_out,			--l'uscita del sommatore rallentata di un colpo di Clock
+		C => dp_DIFF_reg_out,			--l'uscita del sottrattore rallentata di un colpo di Clock
+		S => dp_MSD_DIFFm,
+		Q => dp_MSD_MUX_out
+	);
+	
+	--=============================================---
+	--Port map degli operatori
+	--=============================================---
+	
+	dp_X_MPY_in <= dp_AB_MUX_out;	--L'ingresso 1 del multiplier e' connesso all'uscita del multiplexer A/B
+	dp_Y_MPY_in <= dp_W_MUX_out;	--L'ingresso 2 del multiplier e' connesso all'uscita del multiplexer Wr/Wi
+	
+	pm_Multiplier : BFLY_MULTIPLIER	--Port map del multiplier
+	port map (
+		A => dp_X_MPY_in,
+		B => dp_Y_MPY_in,
+		SHIFT => dp_SHIFT,
+		CK => Clock,
+		M_OUT => dp_MPY_product_out,
+		S_OUT => dp_MPY_shift_out
+	);
+	
+	dp_X_SUM_in <= dp_AS_MUX_out;		--L'ingresso 1 dell'adder e' connesso all'uscita del multiplexer A/Somma
+	dp_Y_SUM_in <= dp_MPY_M_reg_out;	--L'ingresso 2 dell'adder e' connesso all'uscita moltiplicazione del multiplier
+	
+	pm_Adder : BFLY_ADDER	--Port map dell'adder
+	port map (
+		A => dp_X_SUM_in,
+		B => dp_Y_SUM_in,
+		CK => Clock,
+		SUM_OUT => dp_SUM_out
+	);
+	
+	dp_X_DIFF_in <= dp_MS_MUX_out;
+	dp_Y_DIFF_in <= dp_MSD_MUX_out;
+	
+	pm_Subractor : BFLY_SUBTRACTOR	--Port map del sottrattore
+	port map (
+		A => dp_X_DIFF_in,
+		B => dp_Y_DIFF_in,
+		CK => Clock,
+		DIFF_OUT => dp_DIFF_out
+	);
+		
+	pm_ft_shift : T_FF	--Port map del flip flop T che ha come uscita il segnale di SF_2H_1L per il blocco rounding
+	port map (
+		T => dp_SHIFT_SIGNAL,	--Segnale che viene dalla CU
+		R => dp_DONE,			--Segnale che viene dalla CU
+		CK => Clock,
+		Q => dp_SF_2H_1L
+	);
+		
+	pm_rounding : rounding	--Port map del blocco unico shifter a destra e ROM rounding
+	port map (
+		Clock => Clock,
+		rounding_in => dp_SD_MUX_out,
+		rounding_out => dp_ROM_round_out,
+		shift_signal => dp_SF_2H_1L
+	);
+	
+	pm_CU : BFLY_CU_DATAPATH	--Port map della Control unit
+	port map (
+		START => START,
+		SF_2H_1L => SF_2H_1L,
+		CK => Clock,
+		INSTRUCTION_OUT => dp_INSTRUCTION_OUT
+	);
+	
+	--Segnali della parte di istruzione del uIR della CU
+	dp_SHIFT_SIGNAL <= dp_INSTRUCTION_OUT(16);
+	dp_REG_IN <= dp_INSTRUCTION_OUT(15);
+	dp_SUM_REG <= dp_INSTRUCTION_OUT(14);
+	dp_AR_SEL <= dp_INSTRUCTION_OUT(13);
+	dp_BR_SEL <= dp_INSTRUCTION_OUT(12);
+	dp_WR_SEL <= dp_INSTRUCTION_OUT(11);
+	dp_MS_DIFFp <= dp_INSTRUCTION_OUT(10);
+	dp_MSD_DIFFm <= dp_INSTRUCTION_OUT(9 downto 8);
+	dp_AS_SUM_SEL <= dp_INSTRUCTION_OUT(7);
+	dp_SD_ROUND_SEL <= dp_INSTRUCTION_OUT(6);
+	dp_REG_RND_BR <= dp_INSTRUCTION_OUT(5);
+	dp_REG_RND_BI <= dp_INSTRUCTION_OUT(4);
+	dp_REG_RND_AR <= dp_INSTRUCTION_OUT(3);
+	dp_REG_RND_AI <= dp_INSTRUCTION_OUT(2);
+	dp_SHIFT <= dp_INSTRUCTION_OUT(1);
+	dp_DONE <= dp_INSTRUCTION_OUT(0);
+	
+	DONE <= dp_DONE;
+	
+	
+	--=============================================---
+	--Port map dei registri a 49 bit
+	--=============================================---
+	
+	pm_reg_MPY_product_out : FD	--Port map del registro all'uscita prodotto del multiplier
+		generic map (
+			bus_length => 49
+		)
+		port map (
+			D => dp_MPY_product_out,
+			E => '1',
+			CK => Clock,
+			Q => dp_MPY_M_reg_out
+	);
+	
+	pm_reg_MPY_shift_out : FD	--Port map del registro all'uscita shift del multiplier
+		generic map (
+			bus_length => 49
+		)
+		port map (
+			D => dp_MPY_shift_out,
+			E => '1',
+			CK => Clock,
+			Q => dp_MPY_S_reg_out
+	);
+	
+	pm_reg_SUM_out : FD	--Port map del registro all'uscita del sommatore
+		generic map (
+			bus_length => 49
+		)
+		port map (
+			D => dp_SUM_out,
+			E => '1',
+			CK => Clock,
+			Q => dp_SUM_reg_out
+	);
+	
+	pm_reg_DIFF_out : FD	--Port map del registro all'uscita del sottrattore
+		generic map (
+			bus_length => 49
+		)
+		port map (
+			D => dp_DIFF_out,
+			E => '1',
+			CK => Clock,
+			Q => dp_DIFF_reg_out
+	);
+	
+	--=============================================---
+	--Port map dei registri di uscita a 24 bit
+	--=============================================---
+	
+	pm_regout_Br : FD
+		generic map (
+			bus_length => 24
+		)
+		port map (
+			D => dp_ROM_round_out,
+			E => dp_REG_RND_BR,
+			CK => Clock,
+			Q => Br_out
+	);
+	
+	pm_regout_Bi : FD
+		generic map (
+			bus_length => 24
+		)
+		port map (
+			D => dp_ROM_round_out,
+			E => dp_REG_RND_BI,
+			CK => Clock,
+			Q => Bi_out
+	);
+	
+	pm_regout_Ar : FD
+		generic map (
+			bus_length => 24
+		)
+		port map (
+			D => dp_ROM_round_out,
+			E => dp_REG_RND_AR,
+			CK => Clock,
+			Q => Ar_out
+	);
+	
+	pm_regout_Ai : FD
+		generic map (
+			bus_length => 24
+		)
+		port map (
+			D => dp_ROM_round_out,
+			E => dp_REG_RND_AI,
+			CK => Clock,
+			Q => Ai_out
+	);
+	
+end structural;
+\end{lstlisting}
+
+\subsection{Control Unit}
+
+\subsubsection{Datapath}
+
+\begin{lstlisting}[caption={Control Unit Datapath}]
+-- Federico Cobianchi - 332753
+-- Onice Mazzi - 359754
+-- Antonio Telmon - 353781
+
+library IEEE;
+use IEEE.std_logic_1164.all; 
+use IEEE.numeric_std.all;
+
+
+entity BFLY_CU_DATAPATH is
+	port (	START:	in	STD_LOGIC;
+		SF_2H_1L: in STD_LOGIC;
+		CK:	in	STD_LOGIC;
+		INSTRUCTION_OUT:	out	STD_LOGIC_VECTOR(16 downto 0)
+		);
+end BFLY_CU_DATAPATH;
+
+
+architecture structural of BFLY_CU_DATAPATH is 
+	
+	component BFLY_CU_LATE_STATUS_PLA is
+	port (	STATUS: in STD_LOGIC_VECTOR(1 downto 0);
+		LSB_in: in STD_LOGIC;
+		CC_Validation_in: in STD_LOGIC;
+		CC_Validation_out: out STD_LOGIC;
+		LSB_out: out STD_LOGIC
+		);
+	end component;
+	
+	component BFLY_CU_ROM is
+	generic(
+		in_length: INTEGER:= 3;
+		next_Address_length :INTEGER := 4;
+		out_length: INTEGER:= 22
+	);
+	port (	A:	in	STD_LOGIC_VECTOR ((in_length-1) downto 0);
+		OUT_EVEN:	out	STD_LOGIC_VECTOR((out_length-1) downto 0);
+		OUT_ODD:	out	STD_LOGIC_VECTOR((out_length-1) downto 0)
+		);
+	end component;
+	
+	component FD is
+	generic(
+		bus_length: INTEGER:= 24
+	);
+	port (	D:	in	STD_LOGIC_VECTOR ((bus_length-1) downto 0);
+		E: in STD_LOGIC;	--ENABLE attivo alto
+		CK:	in	STD_LOGIC;
+		Q:	out	STD_LOGIC_VECTOR((bus_length-1) downto 0));
+	end component;
+	
+	component MUX_2 is
+	generic(
+		bus_length: INTEGER:= 24
+	);
+	port (	A,B:	in	STD_LOGIC_VECTOR ((bus_length-1) downto 0);
+		S: in STD_LOGIC;
+		Q:	out	STD_LOGIC_VECTOR((bus_length-1) downto 0));
+	end component;
+	
+	SIGNAL microAR_in_MSB : STD_LOGIC_VECTOR (3 downto 1) := (others=>'0');
+	SIGNAL microAR_out_MSB : STD_LOGIC_VECTOR (3 downto 1)	:= (others=>'0');
+	SIGNAL microAR_in_LSB : STD_LOGIC := '0';
+	SIGNAL microAR_out_LSB : STD_LOGIC := '0';
+	
+	SIGNAL CC_mux_out : STD_LOGIC := '0';
+	
+	SIGNAL PLA_ROM_out_even, PLA_ROM_out_odd : STD_LOGIC_VECTOR (21 downto 0):= (others=>'0');
+	
+	SIGNAL PLA_ROM_mux_out : STD_LOGIC_VECTOR (21 downto 0):= (others=>'0');
+	
+	SIGNAL status_PLA_LSB_out : STD_LOGIC := '0';
+	SIGNAL status_PLA_CC_validation_out : STD_LOGIC := '0';
+
+	SIGNAL microIR_in : STD_LOGIC_VECTOR (21 downto 0)	:= (others=>'0');
+	SIGNAL microIR_out : STD_LOGIC_VECTOR (21 downto 0)	:= (others=>'0');
+
+	SIGNAL CC_validation : STD_LOGIC := '0';
+	SIGNAL next_Address_LSB : STD_LOGIC := '0';
+	SIGNAL next_Address_MSB : STD_LOGIC_VECTOR (2 downto 0) := (others=>'0');
+	
+	SIGNAL dp_STATUS : STD_LOGIC_VECTOR (1 downto 0) := (others=>'0');
+	
+	begin
+
+	dp_STATUS(0) <= START;
+	dp_STATUS(1) <= SF_2H_1L;
+
+	INSTRUCTION_OUT <= microIR_out (20 downto 4);
+	CC_validation <= microIR_out (21);
+	next_Address_LSB <= microIR_out (0);
+	
+	next_Address_MSB(2 downto 0) <= microIR_out (3 downto 1);
+
+	microAR_in_MSB <= next_Address_MSB;
+	microAR_in_LSB <= status_PLA_LSB_out;
+
+	microIR_in <= PLA_ROM_mux_out;
+
+	--PLA
+	pm_PLA : BFLY_CU_LATE_STATUS_PLA 
+	port map (	
+		STATUS => dp_STATUS,
+		LSB_in => next_Address_LSB,
+		CC_Validation_in => CC_validation,
+		CC_Validation_out => status_PLA_CC_validation_out,
+		LSB_out => status_PLA_LSB_out
+	);
+
+	--ROM della PLA
+	pm_CU_ROM : BFLY_CU_ROM
+	generic map(
+		in_length => 3,
+		next_Address_length => 3,
+		out_length => 22
+	)
+	port map (	
+		A => microAR_out_MSB,
+		OUT_EVEN => PLA_ROM_out_even,
+		OUT_ODD => PLA_ROM_out_odd
+	);
+
+	--Registro del uAR eccetto l'LSB
+	pm_microAR_MSB_reg : FD
+	generic map (
+		bus_length => 3
+	)
+	port map (
+		D => microAR_in_MSB,
+		E => '1',
+		CK => CK,
+		Q => microAR_out_MSB
+	);
+	
+	--Registro dell'LSB del uAR
+	FF_D_uAR: process(CK)
+	begin
+		if CK'event and CK='1' then -- positive edge triggered:
+			microAR_out_LSB <= microAR_in_LSB;
+		end if;
+	end process;
+	
+	--Registro del uIR
+	pm_microIR_reg : FD 
+	generic map (
+		bus_length => 22
+	)
+	port map (
+		D => microIR_in,
+		E => '1',
+		CK => CK,
+		Q => microIR_out
+	);
+
+	--MUX a due ingressi a 21 bit, che seleziona tra l'uscita pari o dispari della ROM
+	pm_ROM_mux : MUX_2 
+	generic map (
+		bus_length => 22
+	)
+	port map (
+		A => PLA_ROM_out_odd,
+		B => PLA_ROM_out_even,
+		S => CC_mux_out,
+		Q => PLA_ROM_mux_out
+	);
+	
+	--MUX a due ingressi a 1 bit
+	--L'uscita e' il segnale di select per il MUX even/odd della ROM
+	CC_mux_out <= microAR_out_LSB when status_PLA_CC_validation_out = '0' else status_PLA_LSB_out;
+	
+
+end structural;
+\end{lstlisting}
+
+\subsubsection{ROM}
+
+\begin{lstlisting}[caption={Control Unit ROM}]
+-- Federico Cobianchi - 332753
+-- Onice Mazzi - 359754
+-- Antonio Telmon - 353781
+
+library IEEE;
+use IEEE.std_logic_1164.all; 
+use IEEE.numeric_std.all;
+
+
+entity BFLY_CU_ROM is
+	generic(
+		in_length: INTEGER:= 3;
+		next_Address_length :INTEGER := 3;
+		out_length: INTEGER:= 22
+	);
+	port (	A:	in	STD_LOGIC_VECTOR ((in_length-1) downto 0);
+		OUT_EVEN:	out	STD_LOGIC_VECTOR((out_length-1) downto 0);
+		OUT_ODD:	out	STD_LOGIC_VECTOR((out_length-1) downto 0)
+		);
+end BFLY_CU_ROM;
+
+
+architecture behavioral of BFLY_CU_ROM is 
+	
+	SIGNAL out_tmp_even, out_tmp_odd : STD_LOGIC_VECTOR ((out_length-1) downto 0) := (others=>'0');
+	SIGNAL next_Address_even, next_Address_odd : STD_LOGIC_VECTOR ((next_Address_length-1) downto 0) := (others=>'0');
+	
+	SIGNAL REG_IN_even, SUM_REG_even, AR_SEL_even, BR_SEL_even, WR_SEL_even, MS_DIFFp_even, AS_SUM_SEL_even, SD_ROUND_SEL_even, REG_RND_BR_even, REG_RND_BI_even, REG_RND_AR_even, REG_RND_AI_even, SHIFT_even, DONE_even : STD_LOGIC := '0';
+	SIGNAL REG_IN_odd, SUM_REG_odd, AR_SEL_odd, BR_SEL_odd, WR_SEL_odd, MS_DIFFp_odd, AS_SUM_SEL_odd, SD_ROUND_SEL_odd, REG_RND_BR_odd, REG_RND_BI_odd, REG_RND_AR_odd, REG_RND_AI_odd, SHIFT_odd, DONE_odd : STD_LOGIC := '0';
+	SIGNAL SF_2H_1L_even, SF_2H_1L_odd : STD_LOGIC := '0';
+	
+	
+	SIGNAL MSD_DIFFm_even, MSD_DIFFm_odd : STD_LOGIC_VECTOR (1 downto 0) := "00";
+	
+	SIGNAL CC_Validation_even, CC_Validation_odd : STD_LOGIC := '0';
+		
+	begin
+
+	OUT_EVEN <= out_tmp_even;
+	OUT_ODD <= out_tmp_odd;
+
+
+	--CC validation
+	out_tmp_even(21) <= CC_Validation_even;
+
+	--Instruction part
+	out_tmp_even(20) <= SF_2H_1L_even;
+	out_tmp_even(19) <= REG_IN_even;
+	out_tmp_even(18) <= SUM_REG_even;
+	out_tmp_even(17) <= AR_SEL_even;
+	out_tmp_even(16) <= BR_SEL_even;
+	out_tmp_even(15) <= WR_SEL_even;
+	out_tmp_even(14) <= MS_DIFFp_even;
+	out_tmp_even(13 downto 12) <= MSD_DIFFm_even;
+	out_tmp_even(11) <= AS_SUM_SEL_even;
+	out_tmp_even(10) <= SD_ROUND_SEL_even;
+	out_tmp_even(9) <= REG_RND_BR_even;
+	out_tmp_even(8) <= REG_RND_BI_even;
+	out_tmp_even(7) <= REG_RND_AR_even;
+	out_tmp_even(6) <= REG_RND_AI_even;
+	out_tmp_even(5) <= SHIFT_even;
+	out_tmp_even(4) <= DONE_even;
+
+	--Next address
+	out_tmp_even((next_Address_length) downto 1) <= next_Address_even;
+	out_tmp_even(0) <= '0';
+
+
+
+
+	--CC validation
+	out_tmp_odd(21) <= CC_Validation_odd;
+
+	--Instruction part
+	out_tmp_odd(20) <= SF_2H_1L_odd;
+	out_tmp_odd(19) <= REG_IN_odd;
+	out_tmp_odd(18) <= SUM_REG_odd;
+	out_tmp_odd(17) <= AR_SEL_odd;
+	out_tmp_odd(16) <= BR_SEL_odd;
+	out_tmp_odd(15) <= WR_SEL_odd;
+	out_tmp_odd(14) <= MS_DIFFp_odd;
+	out_tmp_odd(13 downto 12) <= MSD_DIFFm_odd;
+	out_tmp_odd(11) <= AS_SUM_SEL_odd;
+	out_tmp_odd(10) <= SD_ROUND_SEL_odd;
+	out_tmp_odd(9) <= REG_RND_BR_odd;
+	out_tmp_odd(8) <= REG_RND_BI_odd;
+	out_tmp_odd(7) <= REG_RND_AR_odd;
+	out_tmp_odd(6) <= REG_RND_AI_odd;
+	out_tmp_odd(5) <= SHIFT_odd;
+	out_tmp_odd(4) <= DONE_odd;
+
+	--Next address
+	out_tmp_odd((next_Address_length) downto 1) <= next_Address_odd;
+	out_tmp_odd(0) <= '1';
+
+	p_rom : process (A)
+	begin
+		if A = "000" then					--IDLE / START
+
+			--IDLE
+			SF_2H_1L_even <= '0';
+			CC_Validation_even <= '0';
+			REG_IN_even <= '0';
+			SUM_REG_even <= '0';
+			AR_SEL_even <= '0';
+			BR_SEL_even <= '0';
+			WR_SEL_even <= '0';
+			MS_DIFFp_even <= '0';
+			MSD_DIFFm_even <= "00";
+			AS_SUM_SEL_even <= '0';
+			SD_ROUND_SEL_even <= '0';
+			REG_RND_BR_even <= '0';
+			REG_RND_BI_even <= '0';
+			REG_RND_AR_even <= '0';
+			REG_RND_AI_even <= '0';
+			SHIFT_even <= '0';
+			DONE_even <= '0';
+			next_Address_even <= "000";
+			
+			--START
+			SF_2H_1L_odd <= '0';
+			CC_Validation_odd <= '1';
+			REG_IN_odd <= '1';
+			SUM_REG_odd <= '0';
+			AR_SEL_odd <= '0';
+			BR_SEL_odd <= '0';
+			WR_SEL_odd <= '0';
+			MS_DIFFp_odd <= '0';
+			MSD_DIFFm_odd <= "00";
+			AS_SUM_SEL_odd <= '0';
+			SD_ROUND_SEL_odd <= '0';
+			REG_RND_BR_odd <= '0';
+			REG_RND_BI_odd <= '0';
+			REG_RND_AR_odd <= '0';
+			REG_RND_AI_odd <= '0';
+			SHIFT_odd <= '0';
+			DONE_odd <= '0';
+			next_Address_odd <= "001";
+			
+
+		elsif A = "001" then 					--M1,SH0 / M1,SH1
+			
+			--M1, SH0
+			SF_2H_1L_even <= '0';
+			CC_Validation_even <= '0';
+			REG_IN_even <= '0';
+			SUM_REG_even <= '0';
+			AR_SEL_even <= '0';
+			BR_SEL_even <= '1';
+			WR_SEL_even <= '1';
+			MS_DIFFp_even <= '0';
+			MSD_DIFFm_even <= "00";
+			AS_SUM_SEL_even <= '0';
+			SD_ROUND_SEL_even <= '0';
+			REG_RND_BR_even <= '0';
+			REG_RND_BI_even <= '0';
+			REG_RND_AR_even <= '0';
+			REG_RND_AI_even <= '0';
+			SHIFT_even <= '0';
+			DONE_even <= '0';
+			next_Address_even <= "010";
+			
+			--M1, SH1
+			SF_2H_1L_odd <= '1';
+			CC_Validation_odd <= '0';
+			REG_IN_odd <= '0';
+			SUM_REG_odd <= '0';
+			AR_SEL_odd <= '0';
+			BR_SEL_odd <= '1';
+			WR_SEL_odd <= '1';
+			MS_DIFFp_odd <= '0';
+			MSD_DIFFm_odd <= "00";
+			AS_SUM_SEL_odd <= '0';
+			SD_ROUND_SEL_odd <= '0';
+			REG_RND_BR_odd <= '0';
+			REG_RND_BI_odd <= '0';
+			REG_RND_AR_odd <= '0';
+			REG_RND_AI_odd <= '0';
+			SHIFT_odd <= '0';
+			DONE_odd <= '0';
+			next_Address_odd <= "010";
+			
+			
+		elsif A = "010" then 					--M2 / M3
+		
+			--M2
+			SF_2H_1L_even <= '0';
+			CC_Validation_even <= '1';
+			REG_IN_even <= '0';
+			SUM_REG_even <= '0';
+			AR_SEL_even <= '0';
+			BR_SEL_even <= '1';
+			WR_SEL_even <= '0';
+			MS_DIFFp_even <= '0';
+			MSD_DIFFm_even <= "00";
+			AS_SUM_SEL_even <= '0';
+			SD_ROUND_SEL_even <= '0';
+			REG_RND_BR_even <= '0';
+			REG_RND_BI_even <= '0';
+			REG_RND_AR_even <= '0';
+			REG_RND_AI_even <= '0';
+			SHIFT_even <= '0';
+			DONE_even <= '0';
+			next_Address_even <= "010";
+			
+			--M3
+			SF_2H_1L_odd <= '0';
+			CC_Validation_odd <= '0';
+			REG_IN_odd <= '0';
+			SUM_REG_odd <= '0';
+			AR_SEL_odd <= '0';
+			BR_SEL_odd <= '0';
+			WR_SEL_odd <= '0';
+			MS_DIFFp_odd <= '0';
+			MSD_DIFFm_odd <= "00";
+			AS_SUM_SEL_odd <= '0';
+			SD_ROUND_SEL_odd <= '0';
+			REG_RND_BR_odd <= '0';
+			REG_RND_BI_odd <= '0';
+			REG_RND_AR_odd <= '0';
+			REG_RND_AI_odd <= '0';
+			SHIFT_odd <= '0';
+			DONE_odd <= '0';
+			next_Address_odd <= "011";
+			
+			
+		elsif A = "011" then 					--M4,S1 / S2
+
+			--M4, S1
+			SF_2H_1L_even <= '0';
+			CC_Validation_even <= '1';
+			REG_IN_even <= '0';
+			SUM_REG_even <= '0';
+			AR_SEL_even <= '1';
+			BR_SEL_even <= '0';
+			WR_SEL_even <= '1';
+			MS_DIFFp_even <= '0';
+			MSD_DIFFm_even <= "00";
+			AS_SUM_SEL_even <= '1';
+			SD_ROUND_SEL_even <= '0';
+			REG_RND_BR_even <= '0';
+			REG_RND_BI_even <= '0';
+			REG_RND_AR_even <= '0';
+			REG_RND_AI_even <= '0';
+			SHIFT_even <= '0';
+			DONE_even <= '0';
+			next_Address_even <= "011";
+			
+			--S2
+			SF_2H_1L_odd <= '0';
+			CC_Validation_odd <= '0';
+			REG_IN_odd <= '0';
+			SUM_REG_odd <= '0';
+			AR_SEL_odd <= '0';
+			BR_SEL_odd <= '0';
+			WR_SEL_odd <= '0';
+			MS_DIFFp_odd <= '0';
+			MSD_DIFFm_odd <= "00";
+			AS_SUM_SEL_odd <= '1';
+			SD_ROUND_SEL_odd <= '0';
+			REG_RND_BR_odd <= '0';
+			REG_RND_BI_odd <= '0';
+			REG_RND_AR_odd <= '0';
+			REG_RND_AI_odd <= '0';
+			SHIFT_odd <= '0';
+			DONE_odd <= '0';
+			next_Address_odd <= "100";
+			
+			
+		elsif A = "100" then  					--M5,D1 / M6,S3
+			
+			--M5, D1
+			SF_2H_1L_even <= '0';
+			CC_Validation_even <= '1';
+			REG_IN_even <= '0';
+			SUM_REG_even <= '0';
+			AR_SEL_even <= '1';
+			BR_SEL_even <= '0';
+			WR_SEL_even <= '0';
+			MS_DIFFp_even <= '0';
+			MSD_DIFFm_even <= "00";
+			AS_SUM_SEL_even <= '0';
+			SD_ROUND_SEL_even <= '0';
+			REG_RND_BR_even <= '0';
+			REG_RND_BI_even <= '0';
+			REG_RND_AR_even <= '0';
+			REG_RND_AI_even <= '0';
+			SHIFT_even <= '1';
+			DONE_even <= '0';
+			next_Address_even <= "100";
+			
+			--M6, S3
+			SF_2H_1L_odd <= '0';
+			CC_Validation_odd <= '0';
+			REG_IN_odd <= '0';
+			SUM_REG_odd <= '0';
+			AR_SEL_odd <= '0';
+			BR_SEL_odd <= '0';
+			WR_SEL_odd <= '0';
+			MS_DIFFp_odd <= '0';
+			MSD_DIFFm_odd <= "00";		--Product
+			AS_SUM_SEL_odd <= '0';
+			SD_ROUND_SEL_odd <= '0';
+			REG_RND_BR_odd <= '0';
+			REG_RND_BI_odd <= '0';
+			REG_RND_AR_odd <= '0';
+			REG_RND_AI_odd <= '0';
+			SHIFT_odd <= '1';
+			DONE_odd <= '0';
+			next_Address_odd <= "101";
+			
+			
+		elsif A = "101" then  					--D2,SH1 / D3,SH2
+			
+			--D2, SH1
+			SF_2H_1L_even <= '0';
+			CC_Validation_even <= '1';
+			REG_IN_even <= '0';
+			SUM_REG_even <= '0';
+			AR_SEL_even <= '0';
+			BR_SEL_even <= '0';
+			WR_SEL_even <= '0';
+			MS_DIFFp_even <= '1';
+			MSD_DIFFm_even <= "10";		--Difference
+			AS_SUM_SEL_even <= '0';
+			SD_ROUND_SEL_even <= '0';
+			REG_RND_BR_even <= '0';
+			REG_RND_BI_even <= '0';
+			REG_RND_AR_even <= '0';
+			REG_RND_AI_even <= '0';
+			SHIFT_even <= '0';
+			DONE_even <= '0';
+			next_Address_even <= "101";
+			
+			--D3, SH2
+			SF_2H_1L_odd <= '0';
+			CC_Validation_odd <= '0';
+			REG_IN_odd <= '0';
+			SUM_REG_odd <= '0';
+			AR_SEL_odd <= '0';
+			BR_SEL_odd <= '0';
+			WR_SEL_odd <= '0';
+			MS_DIFFp_odd <= '1';
+			MSD_DIFFm_odd <= "01";		--Sum
+			AS_SUM_SEL_odd <= '0';
+			SD_ROUND_SEL_odd <= '1';
+			REG_RND_BR_odd <= '0';
+			REG_RND_BI_odd <= '0';
+			REG_RND_AR_odd <= '1';
+			REG_RND_AI_odd <= '0';
+			SHIFT_odd <= '0';
+			DONE_odd <= '0';
+			next_Address_odd <= "110";
+			
+			
+		elsif A = "110" then  					--SH3 / SH4
+			
+			--SH3
+			SF_2H_1L_even <= '0';
+			CC_Validation_even <= '1';
+			REG_IN_even <= '0';
+			SUM_REG_even <= '0';
+			AR_SEL_even <= '0';
+			BR_SEL_even <= '0';
+			WR_SEL_even <= '0';
+			MS_DIFFp_even <= '0';
+			MSD_DIFFm_even <= "00";
+			AS_SUM_SEL_even <= '0';
+			SD_ROUND_SEL_even <= '0';
+			REG_RND_BR_even <= '1';
+			REG_RND_BI_even <= '0';
+			REG_RND_AR_even <= '0';
+			REG_RND_AI_even <= '0';
+			SHIFT_even <= '0';
+			DONE_even <= '0';
+			next_Address_even <= "110";
+			
+			--SH4
+			SF_2H_1L_odd <= '0';
+			CC_Validation_odd <= '0';
+			REG_IN_odd <= '0';
+			SUM_REG_odd <= '0';
+			AR_SEL_odd <= '0';
+			BR_SEL_odd <= '0';
+			WR_SEL_odd <= '0';
+			MS_DIFFp_odd <= '0';
+			MSD_DIFFm_odd <= "00";
+			AS_SUM_SEL_odd <= '0';
+			SD_ROUND_SEL_odd <= '0';
+			REG_RND_BR_odd <= '0';
+			REG_RND_BI_odd <= '0';
+			REG_RND_AR_odd <= '0';
+			REG_RND_AI_odd <= '1';
+			SHIFT_odd <= '0';
+			DONE_odd <= '0';
+			next_Address_odd <= "111";
+			
+			
+		elsif A = "111" then  					--DONE
+			
+			--DONE
+			SF_2H_1L_even <= '0';
+			CC_Validation_even <= '0';
+			REG_IN_even <= '0';
+			SUM_REG_even <= '0';
+			AR_SEL_even <= '0';
+			BR_SEL_even <= '0';
+			WR_SEL_even <= '0';
+			MS_DIFFp_even <= '0';
+			MSD_DIFFm_even <= "00";
+			AS_SUM_SEL_even <= '0';
+			SD_ROUND_SEL_even <= '0';
+			REG_RND_BR_even <= '0';
+			REG_RND_BI_even <= '1';
+			REG_RND_AR_even <= '0';
+			REG_RND_AI_even <= '0';
+			SHIFT_even <= '0';
+			DONE_even <= '1';
+			next_Address_even <= "000";
+			
+			--UNUSED
+			SF_2H_1L_odd <= '0';
+			CC_Validation_odd <= '0';
+			REG_IN_odd <= '0';
+			SUM_REG_odd <= '0';
+			AR_SEL_odd <= '0';
+			BR_SEL_odd <= '0';
+			WR_SEL_odd <= '0';
+			MS_DIFFp_odd <= '0';
+			MSD_DIFFm_odd <= "00";
+			AS_SUM_SEL_odd <= '0';
+			SD_ROUND_SEL_odd <= '0';
+			REG_RND_BR_odd <= '0';
+			REG_RND_BI_odd <= '0';
+			REG_RND_AR_odd <= '0';
+			REG_RND_AI_odd <= '0';
+			SHIFT_odd <= '0';
+			DONE_odd <= '0';
+			next_Address_odd <= "000";
+		
+		else 
+		
+			--DONE
+			SF_2H_1L_even <= '0';
+			CC_Validation_even <= '0';
+			REG_IN_even <= '0';
+			SUM_REG_even <= '0';
+			AR_SEL_even <= '0';
+			BR_SEL_even <= '0';
+			WR_SEL_even <= '0';
+			MS_DIFFp_even <= '0';
+			MSD_DIFFm_even <= "00";
+			AS_SUM_SEL_even <= '0';
+			SD_ROUND_SEL_even <= '0';
+			REG_RND_BR_even <= '0';
+			REG_RND_BI_even <= '0';
+			REG_RND_AR_even <= '0';
+			REG_RND_AI_even <= '0';
+			SHIFT_even <= '0';
+			DONE_even <= '0';
+			next_Address_even <= "000";
+			
+			SF_2H_1L_odd <= '0';
+			CC_Validation_odd <= '0';
+			REG_IN_odd <= '0';
+			SUM_REG_odd <= '0';
+			AR_SEL_odd <= '0';
+			BR_SEL_odd <= '0';
+			WR_SEL_odd <= '0';
+			MS_DIFFp_odd <= '0';
+			MSD_DIFFm_odd <= "00";
+			AS_SUM_SEL_odd <= '0';
+			SD_ROUND_SEL_odd <= '0';
+			REG_RND_BR_odd <= '0';
+			REG_RND_BI_odd <= '0';
+			REG_RND_AR_odd <= '0';
+			REG_RND_AI_odd <= '0';
+			SHIFT_odd <= '0';
+			DONE_odd <= '0';
+			next_Address_odd <= "000";
+			
+	end if;
+	end process;
+
+
+end behavioral;
+\end{lstlisting}
+
+\subsubsection{PLA}
+
+\begin{lstlisting}[caption={Control Unit PLA}]
+-- Federico Cobianchi - 332753
+-- Onice Mazzi - 359754
+-- Antonio Telmon - 353781
+
+library IEEE;
+use IEEE.std_logic_1164.all; 
+use IEEE.numeric_std.all;
+
+
+entity BFLY_CU_LATE_STATUS_PLA is
+	port (	STATUS: in STD_LOGIC_VECTOR(1 downto 0);
+		LSB_in: in STD_LOGIC;
+		CC_Validation_in: in STD_LOGIC;
+		CC_Validation_out: out STD_LOGIC;
+		LSB_out: out STD_LOGIC
+		);
+end BFLY_CU_LATE_STATUS_PLA;
+
+
+architecture behavioral of BFLY_CU_LATE_STATUS_PLA is 
+	
+	SIGNAL START, SF_2H_1L : STD_LOGIC := '0';
+	
+	begin
+	
+		START <= STATUS(0);
+		SF_2H_1L <= STATUS(1);
+
+		LSB_out <= (CC_Validation_in AND (NOT LSB_in)) OR (CC_Validation_in AND SF_2H_1L) OR ((NOT LSB_in) AND START);
+		CC_Validation_out <= NOT(LSB_in);
+
+end behavioral;
+\end{lstlisting}
+
+\subsubsection{Test Bench}
+
+\begin{lstlisting}[caption={TBROM}]
+-- Federico Cobianchi - 332753
+-- Onice Mazzi - 359754
+-- Antonio Telmon - 353781
+
+
+library IEEE;
+use IEEE.std_logic_1164.all; --  libreria IEEE con definizione tipi standard logic
+use IEEE.numeric_std.all;
+
+
+entity tb_CU is
+end	tb_CU;
+
+---------------------------------------------
+
+architecture behavioral of tb_CU is
+	
+	component BFLY_CU_DATAPATH is
+	port (	START:	in	STD_LOGIC;
+		SF_2H_1L: in STD_LOGIC;
+		CK:	in	STD_LOGIC;
+		INSTRUCTION_OUT:	out	STD_LOGIC_VECTOR(16 downto 0)
+		);
+	end component;
+	
+	constant period : time := 100 ns;
+	
+	SIGNAL TB_CLK, TB_SF_2H_1L, TB_START : STD_LOGIC := '0';
+	SIGNAL TB_INSTRUCTION_OUT: STD_LOGIC_VECTOR(16 downto 0) := (others=>'0');
+	
+	SIGNAL REG_IN, SUM_REG, AR_SEL, BR_SEL, WR_SEL, MS_DIFFp, AS_SUM_SEL, SD_ROUND_SEL, REG_RND_BR, REG_RND_BI, REG_RND_AR, REG_RND_AI, SHIFT, DONE : STD_LOGIC := '0';
+	SIGNAL MSD_DIFFm : STD_LOGIC_VECTOR (1 downto 0) := "00";	
+	SIGNAL SF_2H_1L_out : STD_LOGIC := '0';
+	
+	begin
+	
+		--Instruction part
+	SF_2H_1L_out <= TB_INSTRUCTION_OUT(16);
+	REG_IN <= TB_INSTRUCTION_OUT(15);
+	SUM_REG <= TB_INSTRUCTION_OUT(14);
+	AR_SEL <= TB_INSTRUCTION_OUT(13);
+	BR_SEL <= TB_INSTRUCTION_OUT(12);
+	WR_SEL <= TB_INSTRUCTION_OUT(11);
+	MS_DIFFp <= TB_INSTRUCTION_OUT(10);
+	MSD_DIFFm <= TB_INSTRUCTION_OUT(9 downto 8);
+	AS_SUM_SEL <= TB_INSTRUCTION_OUT(7);
+	SD_ROUND_SEL <= TB_INSTRUCTION_OUT(6);
+	REG_RND_BR <= TB_INSTRUCTION_OUT(5);
+	REG_RND_BI <= TB_INSTRUCTION_OUT(4);
+	REG_RND_AR <= TB_INSTRUCTION_OUT(3);
+	REG_RND_AI <= TB_INSTRUCTION_OUT(2);
+	SHIFT <= TB_INSTRUCTION_OUT(1);
+	DONE <= TB_INSTRUCTION_OUT(0);
+
+	
+	TB_CLK <= not TB_CLK after period/2;
+	
+	process 
+	begin
+		wait for period*3;
+		TB_START <= '1';
+		wait for period*1;
+		TB_START <= '0';
+		wait for period*20;
+	end process;
+	
+	
+	pm_CU : BFLY_CU_DATAPATH port map (
+		TB_START,
+		TB_SF_2H_1L,
+		TB_CLK,
+		TB_INSTRUCTION_OUT
+	);
+	
+end behavioral;
 \end{lstlisting}
