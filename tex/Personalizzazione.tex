@@ -29,10 +29,10 @@
     to_unsigned, to_signed, resize, std_logic_arith,
     event, stable, quiet, transaction, last_event, last_value, driving, active,
     generate, for, if, label, open, range, downto, to, alias, shared, disconnect,
-    guarded, transport, inertial, reject
+    guarded, transport, inertial, reject, STD_LOGIC_VECTOR
   },
   morekeywords=[2]{
-    ieee, numeric_std, std_logic_1164
+    ieee, numeric_std, std_logic_1164, IEEE
   },
   sensitive=true,
   comment=[l]--,
@@ -60,8 +60,8 @@
 \makeatother
 
 % le subsubsections nell'indice le rende le lettere dell'alfabeto
-\renewcommand{\thesubsubsection}{\alph{subsubsection}.}
-\setcounter{secnumdepth}{3}
+% \renewcommand{\thesubsubsection}{\alph{subsubsection}.}
+% \setcounter{secnumdepth}{3}
 
 % Per usarlo \begin(myquote)
 \newtcolorbox{myquote}[1][]{%
