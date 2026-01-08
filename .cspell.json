@@ -4,5 +4,9 @@
   "words": [ "Arrotondatore"],
   "ignoreRegExpList": [
     "\\\\begin\\{lstlisting\\}[\\s\\S]*?\\\\end\\{lstlisting\\}"
-  ]
+  ],
+  "ignorePaths": [
+  "**/*.vhd",
+  "**/*.vhdl"
+]
 }
