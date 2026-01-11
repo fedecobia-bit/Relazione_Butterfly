@@ -1,0 +1,26 @@
+\section{Butterfly}
+
+\noindent Dopo aver descritto, tramite linguaggio VHDL, i vari blocchi precedentemente descritti si è passati alla creazione di un
+blocco butterfly singolo per un test intermedio e per accertarsi che tutto funzionasse in modo sinergico.
+I listati possono essere consultati nel \textit{Cap. \ref{cap: Appendice}}.
+
+Questo test è risultato importante perchè ha permesso di correggere alcuni piccoli errori che non erano stati individuati durante
+i test precedenti.
+Grazie a queste modifiche il singolo blocco butterfly ha funzionato correttamente durante i successivi test e ciò a permesso di 
+proseguire nell'implementazione della FFT 16x16 senza doversi preoccupare di possibili errori commessi in precedenza.\\
+
+\noindent Come si vede da \textit{Fig. \ref{fig: Butterfly_schematic}} la butterfly singola riceve in ingresso segnali con
+parallelismo 24 bit e il segnale SF\_2H\_1L per gestire lo shift.
+In uscita presenta un bus con parallelismo 24 bit.
+Al suo interno sono presenti due blocchi, la Control Unit e il Datapath.
+Tutto ciò è conforme con quanto richiesto dalla consegna del progetto ovvero ingresso a 24 bit e uscita a 24 bit a prescindere
+dal parallelismo adottato internamente per sviluppare i calcoli ed effettuare le numerose operazioni logiche.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{Foto/Butterfly/Butterfly_schematic.jpg}
+    \caption{Rappresentazione di una butterfly singola}
+    \label{fig: Butterfly_schematic}
+\end{figure}
+
+\pagebreak

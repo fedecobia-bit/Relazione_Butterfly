@@ -1,9 +1,10 @@
-\section{Appendice}
+\section{Appendice - File VHDL}
+\label{cap: Appendice}
 
-% Per facilitar questo è il da usare per scrivere il codice:
+% Per facilitare il tutto questo è il comando da usare per scrivere il codice:
 % 1) Lasciare all'inizio il nome dei componenti del gruppo
 % 2) Cambiare il nome nella caption ___ se è un test bench chiamarlo TB***
-% 								  |__ se è un normale chiamarlo col suo nome
+% 								                   |__ se è un normale chiamarlo col suo nome
 %
 % Per utilizzare il codice basta copiare e incollare la roba dentro \begin{comment}\end{comment}
 \begin{comment}
@@ -26,7 +27,7 @@
 \lstinputlisting[
   language=VHDL,
   caption={Sommatore}
-]{Code/bfly_adder.vhd}
+]{Code/Components/bfly_adder.vhd}
 
 \subsection{MUX}
 
@@ -35,28 +36,28 @@
 \lstinputlisting[
   language=VHDL,
   caption={MUX 2}
-]{Code/mux_2.vhd}
+]{Code/Components/mux_2.vhd}
 
 \subsubsection{MUX 3}
 
 \lstinputlisting[
   language=VHDL,
   caption={MUX 3}
-]{Code/mux_3.vhd}
+]{Code/Components/mux_3.vhd}
 
 \subsection{Sottrattore}
 
 \lstinputlisting[
   language=VHDL,
   caption={Sottrattore}
-]{Code/bfly_subtractor.vhd}
+]{Code/Components/bfly_subtractor.vhd}
 
 \subsection{Moltiplicatore/Shifter}
 
 \lstinputlisting[
   language=VHDL,
   caption={Moltiplicatore/shifter}
-]{Code/bfly_multiplier.vhd}
+]{Code/Components/bfly_multiplier.vhd}
 
 \subsection{ROM rounding}
 
@@ -65,62 +66,72 @@
 \lstinputlisting[
   language=VHDL,
   caption={Blocco intero adibito al ROM rounding}
-]{Code/Rounding_single_clock.vhd}
+]{Code/Components/Rounding_single_clock.vhd}
 
 \subsubsection{Test Bench del ROM rounding}
 
 \lstinputlisting[
   language=VHDL,
   caption={Test Bench del ROM rounding}
-]{Code/Testbench_ROUNDING.vhd}
+]{Code/Test Bench/Testbench_ROUNDING.vhd}
 
 \subsubsection{ROM}
 
 \lstinputlisting[
   language=VHDL,
   caption={ROM}
-]{Code/ROM.vhd}
+]{Code/Components/ROM.vhd}
 
 \subsubsection{Test Bench della ROM}
 
 \lstinputlisting[
   language=VHDL,
   caption={Test Bench della ROM}
-]{Code/Testbench_ROM.vhd}
+]{Code/Test Bench/Testbench_ROM.vhd}
 
 \subsection{Datapath}
 
 \lstinputlisting[
   language=VHDL,
   caption={Datapath}
-]{Code/bfly_datapath.vhd}
+]{Code/Components/bfly_datapath.vhd}
 
 \subsection{Control Unit}
 
 \subsubsection{Datapath}
+\label{listing: control_unit_datapath}
 
 \lstinputlisting[
   language=VHDL,
   caption={Control Unit datapath}
-]{Code/bfly_CU_datapath.vhd}
+]{Code/Components/bfly_CU_datapath.vhd}
 
 \subsubsection{ROM}
 
 \lstinputlisting[
   language=VHDL,
   caption={Control Unit ROM}
-]{Code/bfly_CU_ROM.vhd}
+]{Code/Components/bfly_CU_ROM.vhd}
 
 \subsubsection{PLA}
 
 \lstinputlisting[
   language=VHDL,
   caption={Control Unit PLA}
-]{Code/bfly_CU_late_status_PLA.vhd}
+]{Code/Components/bfly_CU_late_status_PLA.vhd}
 
 \subsubsection{Test Bench della Control Unit}
 
 \lstinputlisting[
   language=VHDL,
   caption={Test Bench della Control Unit}
-]{Code/tb_CU.vhd}
+]{Code/Test Bench/tb_CU.vhd}
+
+\subsection{Butterfly}
+
+\subsubsection{Test Bench della Butterfly singola}
+
+\lstinputlisting[
+  language=VHDL,
+  caption={Test Bench della Control Unit}
+]{Code/Test Bench/tb_bfly_single.vhd}

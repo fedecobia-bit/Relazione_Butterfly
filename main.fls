@@ -296,6 +296,14 @@ INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\tex\latex\tools\array.sty
 INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\tex\latex\tools\array.sty
 INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\tex\latex\float\float.sty
 INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\tex\latex\float\float.sty
+INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\tex\latex\fancyhdr\fancyhdr.sty
+INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\tex\latex\fancyhdr\fancyhdr.sty
+INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\tex\latex\lastpage\lastpage.sty
+INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\tex\latex\lastpage\lastpage.sty
+INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\tex\latex\lastpage\lastpage2e.sty
+INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\tex\latex\lastpage\lastpage2e.sty
+INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\tex\latex\lastpage\lastpagemodern.sty
+INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\tex\latex\lastpage\lastpagemodern.sty
 INPUT .\tex\Personalizzazione.tex
 INPUT .\tex\Personalizzazione.tex
 INPUT tex\Personalizzazione.tex
@@ -452,55 +460,85 @@ INPUT .\Foto\ControlUnit\control_unit.jpg
 INPUT .\Foto\ControlUnit\control_unit.jpg
 INPUT .\Foto\ControlUnit\control_unit.jpg
 INPUT .\Foto\ControlUnit\control_unit.jpg
+INPUT .\Chapters\Butterfly.tex
+INPUT .\Chapters\Butterfly.tex
+INPUT Chapters\Butterfly.tex
+INPUT .\Foto\Butterfly\Butterfly_schematic.jpg
+INPUT .\Foto\Butterfly\Butterfly_schematic.jpg
+INPUT .\Foto\Butterfly\Butterfly_schematic.jpg
+INPUT .\Foto\Butterfly\Butterfly_schematic.jpg
+INPUT .\Foto\Butterfly\Butterfly_schematic.jpg
+INPUT .\Foto\Butterfly\Butterfly_schematic.jpg
+INPUT .\Foto\Butterfly\Butterfly_schematic.jpg
+INPUT .\Chapters\Simulazioni.tex
+INPUT .\Chapters\Simulazioni.tex
+INPUT Chapters\Simulazioni.tex
+INPUT .\Simulazioni\Datapath\sommatore.png
+INPUT .\Simulazioni\Datapath\sommatore.png
+INPUT .\Simulazioni\Datapath\sommatore.png
+INPUT .\Simulazioni\Datapath\sommatore.png
+INPUT .\Simulazioni\Datapath\sommatore.png
+INPUT .\Simulazioni\Datapath\sommatore.png
+INPUT .\Simulazioni\Datapath\sommatore.png
+INPUT .\Simulazioni\Datapath\sottrattore.png
+INPUT .\Simulazioni\Datapath\sottrattore.png
+INPUT .\Simulazioni\Datapath\sottrattore.png
+INPUT .\Simulazioni\Datapath\sottrattore.png
+INPUT .\Simulazioni\Datapath\sottrattore.png
+INPUT .\Simulazioni\Datapath\sottrattore.png
+INPUT .\Simulazioni\Datapath\sottrattore.png
 INPUT .\Chapters\Appendice.tex
 INPUT .\Chapters\Appendice.tex
 INPUT Chapters\Appendice.tex
-INPUT .\Code\bfly_adder.vhd
-INPUT .\Code\bfly_adder.vhd
+INPUT .\Code\Components\bfly_adder.vhd
+INPUT .\Code\Components\bfly_adder.vhd
 INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ectt1000.tfm
 INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ectt0900.tfm
-INPUT Code\bfly_adder.vhd
+INPUT Code\Components\bfly_adder.vhd
 INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecrm0900.tfm
 INPUT C:\Users\giraf\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecrm0500.tfm
-INPUT .\Code\mux_2.vhd
-INPUT .\Code\mux_2.vhd
-INPUT Code\mux_2.vhd
-INPUT .\Code\mux_3.vhd
-INPUT .\Code\mux_3.vhd
-INPUT Code\mux_3.vhd
-INPUT .\Code\bfly_subtractor.vhd
-INPUT .\Code\bfly_subtractor.vhd
-INPUT Code\bfly_subtractor.vhd
-INPUT .\Code\bfly_multiplier.vhd
-INPUT .\Code\bfly_multiplier.vhd
-INPUT Code\bfly_multiplier.vhd
-INPUT .\Code\Rounding_single_clock.vhd
-INPUT .\Code\Rounding_single_clock.vhd
-INPUT Code\Rounding_single_clock.vhd
-INPUT .\Code\Testbench_ROUNDING.vhd
-INPUT .\Code\Testbench_ROUNDING.vhd
-INPUT Code\Testbench_ROUNDING.vhd
-INPUT .\Code\ROM.vhd
-INPUT .\Code\ROM.vhd
-INPUT Code\ROM.vhd
-INPUT .\Code\Testbench_ROM.vhd
-INPUT .\Code\Testbench_ROM.vhd
-INPUT Code\Testbench_ROM.vhd
-INPUT .\Code\bfly_datapath.vhd
-INPUT .\Code\bfly_datapath.vhd
-INPUT Code\bfly_datapath.vhd
-INPUT .\Code\bfly_CU_datapath.vhd
-INPUT .\Code\bfly_CU_datapath.vhd
-INPUT Code\bfly_CU_datapath.vhd
-INPUT .\Code\bfly_CU_ROM.vhd
-INPUT .\Code\bfly_CU_ROM.vhd
-INPUT Code\bfly_CU_ROM.vhd
-INPUT .\Code\bfly_CU_late_status_PLA.vhd
-INPUT .\Code\bfly_CU_late_status_PLA.vhd
-INPUT Code\bfly_CU_late_status_PLA.vhd
-INPUT .\Code\tb_CU.vhd
-INPUT .\Code\tb_CU.vhd
-INPUT Code\tb_CU.vhd
+INPUT .\Code\Components\mux_2.vhd
+INPUT .\Code\Components\mux_2.vhd
+INPUT Code\Components\mux_2.vhd
+INPUT .\Code\Components\mux_3.vhd
+INPUT .\Code\Components\mux_3.vhd
+INPUT Code\Components\mux_3.vhd
+INPUT .\Code\Components\bfly_subtractor.vhd
+INPUT .\Code\Components\bfly_subtractor.vhd
+INPUT Code\Components\bfly_subtractor.vhd
+INPUT .\Code\Components\bfly_multiplier.vhd
+INPUT .\Code\Components\bfly_multiplier.vhd
+INPUT Code\Components\bfly_multiplier.vhd
+INPUT .\Code\Components\Rounding_single_clock.vhd
+INPUT .\Code\Components\Rounding_single_clock.vhd
+INPUT Code\Components\Rounding_single_clock.vhd
+INPUT .\Code\Test Bench\Testbench_ROUNDING.vhd
+INPUT .\Code\Test Bench\Testbench_ROUNDING.vhd
+INPUT Code\Test Bench\Testbench_ROUNDING.vhd
+INPUT .\Code\Components\ROM.vhd
+INPUT .\Code\Components\ROM.vhd
+INPUT Code\Components\ROM.vhd
+INPUT .\Code\Test Bench\Testbench_ROM.vhd
+INPUT .\Code\Test Bench\Testbench_ROM.vhd
+INPUT Code\Test Bench\Testbench_ROM.vhd
+INPUT .\Code\Components\bfly_datapath.vhd
+INPUT .\Code\Components\bfly_datapath.vhd
+INPUT Code\Components\bfly_datapath.vhd
+INPUT .\Code\Components\bfly_CU_datapath.vhd
+INPUT .\Code\Components\bfly_CU_datapath.vhd
+INPUT Code\Components\bfly_CU_datapath.vhd
+INPUT .\Code\Components\bfly_CU_ROM.vhd
+INPUT .\Code\Components\bfly_CU_ROM.vhd
+INPUT Code\Components\bfly_CU_ROM.vhd
+INPUT .\Code\Components\bfly_CU_late_status_PLA.vhd
+INPUT .\Code\Components\bfly_CU_late_status_PLA.vhd
+INPUT Code\Components\bfly_CU_late_status_PLA.vhd
+INPUT .\Code\Test Bench\tb_CU.vhd
+INPUT .\Code\Test Bench\tb_CU.vhd
+INPUT Code\Test Bench\tb_CU.vhd
+INPUT .\Code\Test Bench\tb_bfly_single.vhd
+INPUT .\Code\Test Bench\tb_bfly_single.vhd
+INPUT Code\Test Bench\tb_bfly_single.vhd
 INPUT main.aux
 INPUT .\main.out
 INPUT .\main.out
