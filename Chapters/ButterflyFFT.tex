@@ -1,4 +1,6 @@
-\section{Butterfly}
+\section{Butterfly e FFT}
+
+\subsection{Butterfly}
 
 \noindent Dopo aver descritto, tramite linguaggio VHDL, i vari blocchi precedentemente descritti si è passati alla creazione di un
 blocco butterfly singolo per un test intermedio e per accertarsi che tutto funzionasse in modo sinergico.
@@ -22,5 +24,16 @@ dal parallelismo adottato internamente per sviluppare i calcoli ed effettuare le
     \caption{Rappresentazione di una butterfly singola}
     \label{fig: Butterfly_schematic}
 \end{figure}
+
+\subsection{FFT}
+
+\noindent Una volta creato la singola butterfly si è proceduto con la creazione della struttura che permette l'implementazione
+hardware della FFT.
+Per fare ciò la singola butterfly è stata replicata trentadue volte.
+Volendo rendere più semplice la gestione dei segnali in ciascuna butterfly sono stati assegnati staticamente i valori di SF\_2H\_1L,
+Wr e Wi.
+
+\input{Chapters/VettoriDiTest.tex}
+
 
 \pagebreak

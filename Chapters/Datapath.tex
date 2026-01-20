@@ -50,13 +50,13 @@ numero di bit totali da memorizzare.
 
 \begin{table}[h!]
     \centering
-    \begin{tabular}{|c|c|c|}
+    \begin{tabular}{|c|c|c|c|}
         \hline
-        bit indirizzo  & righe ROM & bit totali \\ \hline
-        3 & 8   & 40\\ \hline
-        5 & 32  & 160\\ \hline
-        7 & 128 & 640\\ \hline
-        9 & 512 & 2560\\ \hline
+        bit indirizzo  & righe ROM & bit totali (singola butterfly) & bit totali (FFT)   \\ \hline
+            3          &     8     &            24                  &       768             \\ \hline
+            4          &    14     &            56                  &       1792             \\ \hline
+            5          &    32     &            160                 &       5120             \\ \hline
+            6          &    64     &            384                 &      12288              \\ \hline
     \end{tabular}
     \caption{Relazione tra il numero di bit di indirizzo della ROM, il numero di righe ed il numero totale di bit memorizzati}
     \label{tab: indirizzo_righe_bit}
@@ -71,11 +71,10 @@ Di seguito si riportano i test effettuati:
     \centering
     \begin{tabular}{|c|c|c|}
         \hline
-        bit indirizzo  & bias & errore \\ \hline
-         &   & \\ \hline
-         &   & \\ \hline
-         &   & \\ \hline
-         &   & \\ \hline
+                    bit indirizzo      &   bias   & errore \\ \hline
+            5 (2 Mantissa + 3 Scarto)  &  -1/16   &   -4     \\ \hline
+            5 (3 Mantissa + 2 Scarto)  &   1/16   &   -1     \\ \hline
+            6 (3 Mantissa + 3 Scarto)  &    0     &   -4     \\ \hline
     \end{tabular}
     \caption{Relazione tra il numero di bit di indirizzo della ROM, il bias e l'errore}
     \label{tab: indirizzo_bias_errore}

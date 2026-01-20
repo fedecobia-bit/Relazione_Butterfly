@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.8)  11 JAN 2026 20:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.8)  20 JAN 2026 17:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -807,7 +807,7 @@ Package caption Info: float package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count368
-<Style/logo.png, id=190, 703.6689pt x 310.0383pt>
+<Style/logo.png, id=198, 703.6689pt x 310.0383pt>
 File: Style/logo.png Graphic file (type png)
 <use Style/logo.png>
 Package pdftex.def Info: Style/logo.png  used on input line 10.
@@ -831,74 +831,74 @@ Underfull \hbox (badness 10000) in paragraph at lines 26--30
  []
 
 ) [1] (Chapters/DataFlowDiagram.tex
-<Foto/DataFlowDiagram/BlocchiDataFlowDiagram.jpg, id=252, 1606.0pt x 965.6075pt>
+<Foto/DataFlowDiagram/BlocchiDataFlowDiagram.jpg, id=262, 1606.0pt x 965.6075pt>
 File: Foto/DataFlowDiagram/BlocchiDataFlowDiagram.jpg Graphic file (type jpg)
 <use Foto/DataFlowDiagram/BlocchiDataFlowDiagram.jpg>
 Package pdftex.def Info: Foto/DataFlowDiagram/BlocchiDataFlowDiagram.jpg  used on input line 22.
 (pdftex.def)             Requested size: 384.11221pt x 230.94017pt.
-<Foto/DataFlowDiagram/asap_DataFlow.jpg, id=254, 908.39375pt x 951.555pt>
+<Foto/DataFlowDiagram/asap_DataFlow.jpg, id=264, 908.39375pt x 951.555pt>
 File: Foto/DataFlowDiagram/asap_DataFlow.jpg Graphic file (type jpg)
 <use Foto/DataFlowDiagram/asap_DataFlow.jpg>
 Package pdftex.def Info: Foto/DataFlowDiagram/asap_DataFlow.jpg  used on input line 33.
 (pdftex.def)             Requested size: 384.11221pt x 402.36552pt.
  [2 <./Foto/DataFlowDiagram/BlocchiDataFlowDiagram.jpg>]
-<Foto/DataFlowDiagram/alap_DataFlow.jpg, id=265, 908.39375pt x 951.555pt>
+<Foto/DataFlowDiagram/alap_DataFlow.jpg, id=275, 908.39375pt x 951.555pt>
 File: Foto/DataFlowDiagram/alap_DataFlow.jpg Graphic file (type jpg)
 <use Foto/DataFlowDiagram/alap_DataFlow.jpg>
 Package pdftex.def Info: Foto/DataFlowDiagram/alap_DataFlow.jpg  used on input line 48.
 (pdftex.def)             Requested size: 384.11221pt x 402.36552pt.
  [3 <./Foto/DataFlowDiagram/asap_DataFlow.jpg>]
-<Foto/DataFlowDiagram/DataFlowDiagram.jpg, id=272, 908.39375pt x 952.55875pt>
+<Foto/DataFlowDiagram/DataFlowDiagram.jpg, id=282, 908.39375pt x 952.55875pt>
 File: Foto/DataFlowDiagram/DataFlowDiagram.jpg Graphic file (type jpg)
 <use Foto/DataFlowDiagram/DataFlowDiagram.jpg>
 Package pdftex.def Info: Foto/DataFlowDiagram/DataFlowDiagram.jpg  used on input line 60.
 (pdftex.def)             Requested size: 384.11221pt x 402.78996pt.
  [4 <./Foto/DataFlowDiagram/alap_DataFlow.jpg>]
-<Foto/DataFlowDiagram/tempo_di_vita_variabili.jpg, id=279, 1525.7pt x 534.99875pt>
+<Foto/DataFlowDiagram/tempo_di_vita_variabili.jpg, id=289, 1525.7pt x 534.99875pt>
 File: Foto/DataFlowDiagram/tempo_di_vita_variabili.jpg Graphic file (type jpg)
 <use Foto/DataFlowDiagram/tempo_di_vita_variabili.jpg>
 Package pdftex.def Info: Foto/DataFlowDiagram/tempo_di_vita_variabili.jpg  used on input line 73.
 (pdftex.def)             Requested size: 384.11221pt x 134.68814pt.
 ) [5 <./Foto/DataFlowDiagram/DataFlowDiagram.jpg> <./Foto/DataFlowDiagram/tempo_di_vita_variabili.jpg>] (Chapters/Datapath.tex
-<Foto/Datapath/datapath_originale.jpg, id=288, 908.39375pt x 1284.8pt>
+<Foto/Datapath/datapath_originale.jpg, id=298, 908.39375pt x 1284.8pt>
 File: Foto/Datapath/datapath_originale.jpg Graphic file (type jpg)
 <use Foto/Datapath/datapath_originale.jpg>
 Package pdftex.def Info: Foto/Datapath/datapath_originale.jpg  used on input line 24.
 (pdftex.def)             Requested size: 307.2929pt x 434.63052pt.
-<Foto/Datapath/datapath.jpg, id=289, 908.39375pt x 1284.8pt>
+<Foto/Datapath/datapath.jpg, id=299, 908.39375pt x 1284.8pt>
 File: Foto/Datapath/datapath.jpg Graphic file (type jpg)
 <use Foto/Datapath/datapath.jpg>
 Package pdftex.def Info: Foto/Datapath/datapath.jpg  used on input line 31.
 (pdftex.def)             Requested size: 307.2929pt x 434.63052pt.
  [6 <./Foto/Datapath/datapath_originale.jpg>] [7 <./Foto/Datapath/datapath.jpg>]
-<Foto/Datapath/ROM_rounding.jpg, id=302, 1264.725pt x 1284.8pt>
+<Foto/Datapath/ROM_rounding.jpg, id=312, 1264.725pt x 1284.8pt>
 File: Foto/Datapath/ROM_rounding.jpg Graphic file (type jpg)
 <use Foto/Datapath/ROM_rounding.jpg>
-Package pdftex.def Info: Foto/Datapath/ROM_rounding.jpg  used on input line 93.
+Package pdftex.def Info: Foto/Datapath/ROM_rounding.jpg  used on input line 92.
 (pdftex.def)             Requested size: 307.2929pt x 312.16156pt.
 ) [8 <./Foto/Datapath/ROM_rounding.jpg>] (Chapters/ControlUnit.tex [9]
-<Foto/ControlUnit/control_unit.jpg, id=320, 908.39375pt x 1284.8pt>
+<Foto/ControlUnit/control_unit.jpg, id=330, 908.39375pt x 1284.8pt>
 File: Foto/ControlUnit/control_unit.jpg Graphic file (type jpg)
 <use Foto/ControlUnit/control_unit.jpg>
 Package pdftex.def Info: Foto/ControlUnit/control_unit.jpg  used on input line 101.
 (pdftex.def)             Requested size: 307.2929pt x 434.63052pt.
-) [10 <./Foto/ControlUnit/control_unit.jpg>] (Chapters/Butterfly.tex
-Underfull \hbox (badness 10000) in paragraph at lines 7--11
+) [10 <./Foto/ControlUnit/control_unit.jpg>] (Chapters/ButterflyFFT.tex
+Underfull \hbox (badness 10000) in paragraph at lines 9--13
 
  []
 
-<Foto/Butterfly/Butterfly_schematic.jpg, id=327, 3083.52pt x 1114.1625pt>
+<Foto/Butterfly/Butterfly_schematic.jpg, id=337, 3083.52pt x 1114.1625pt>
 File: Foto/Butterfly/Butterfly_schematic.jpg Graphic file (type jpg)
 <use Foto/Butterfly/Butterfly_schematic.jpg>
-Package pdftex.def Info: Foto/Butterfly/Butterfly_schematic.jpg  used on input line 21.
+Package pdftex.def Info: Foto/Butterfly/Butterfly_schematic.jpg  used on input line 23.
 (pdftex.def)             Requested size: 384.11221pt x 138.77695pt.
-) [11 <./Foto/Butterfly/Butterfly_schematic.jpg>] (Chapters/Simulazioni.tex
-<Simulazioni/Datapath/sommatore.png, id=334, 1212.78094pt x 127.22531pt>
+(Chapters/VettoriDiTest.tex)) [11 <./Foto/Butterfly/Butterfly_schematic.jpg>] (Chapters/Simulazioni.tex
+<Simulazioni/Datapath/sommatore.png, id=349, 1212.78094pt x 127.22531pt>
 File: Simulazioni/Datapath/sommatore.png Graphic file (type png)
 <use Simulazioni/Datapath/sommatore.png>
 Package pdftex.def Info: Simulazioni/Datapath/sommatore.png  used on input line 5.
 (pdftex.def)             Requested size: 512.14963pt x 53.72739pt.
-<Simulazioni/Datapath/sottrattore.png, id=335, 1287.30937pt x 83.5622pt>
+<Simulazioni/Datapath/sottrattore.png, id=350, 1287.30937pt x 83.5622pt>
 File: Simulazioni/Datapath/sottrattore.png Graphic file (type png)
 <use Simulazioni/Datapath/sottrattore.png>
 Package pdftex.def Info: Simulazioni/Datapath/sottrattore.png  used on input line 12.
@@ -913,20 +913,20 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 03430CBFFB0861E9E31826FA90D7A4B0;4985.
+(rerunfilecheck)             Checksum: 5D0F50CB026164B98DA1BE464F61913E;5197.
  ) 
 Here is how much of TeX's memory you used:
- 34505 strings out of 467871
- 678034 string characters out of 5418376
- 1491393 words of memory out of 5000000
- 60746 multiletter control sequences out of 15000+600000
- 644178 words of font info for 81 fonts, out of 8000000 for 9000
+ 34527 strings out of 467871
+ 678601 string characters out of 5418376
+ 1491396 words of memory out of 5000000
+ 60760 multiletter control sequences out of 15000+600000
+ 645105 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,12n,121p,535b,2126s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\giraf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt0900.pk> <C:\Users\giraf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0500.pk> <C:\Users\giraf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0700.pk> <C:\Users\giraf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\giraf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\giraf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\giraf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\giraf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\giraf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\giraf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\giraf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1728.pk> <C:\Users\giraf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk><C:/Users/giraf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
-Output written on main.pdf (46 pages, 2541320 bytes).
+ <C:\Users\giraf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt0900.pk> <C:\Users\giraf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0500.pk> <C:\Users\giraf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0700.pk> <C:\Users\giraf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\giraf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\giraf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\giraf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\giraf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\giraf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\giraf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\giraf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1728.pk> <C:\Users\giraf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk><C:/Users/giraf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/giraf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/giraf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/giraf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/giraf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/giraf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on main.pdf (46 pages, 2589544 bytes).
 PDF statistics:
- 3275 PDF objects out of 3580 (max. 8388607)
- 2037 named destinations out of 2073 (max. 500000)
- 518 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3314 PDF objects out of 3580 (max. 8388607)
+ 2039 named destinations out of 2073 (max. 500000)
+ 534 words of extra memory for PDF output out of 10000 (max. 10000000)
 
