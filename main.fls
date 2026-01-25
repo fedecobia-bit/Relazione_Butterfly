@@ -542,9 +542,12 @@ INPUT Code\Components\bfly_CU_late_status_PLA.vhd
 INPUT .\Code\Test Bench\tb_CU.vhd
 INPUT .\Code\Test Bench\tb_CU.vhd
 INPUT Code\Test Bench\tb_CU.vhd
-INPUT .\Code\Test Bench\tb_bfly_single.vhd
-INPUT .\Code\Test Bench\tb_bfly_single.vhd
-INPUT Code\Test Bench\tb_bfly_single.vhd
+INPUT .\Code\Components\bfly_top_entity.vhd
+INPUT .\Code\Components\bfly_top_entity.vhd
+INPUT Code\Components\bfly_top_entity.vhd
+INPUT .\Code\Test Bench\TB_FFT.vhd
+INPUT .\Code\Test Bench\TB_FFT.vhd
+INPUT Code\Test Bench\TB_FFT.vhd
 INPUT main.aux
 INPUT .\main.out
 INPUT .\main.out
