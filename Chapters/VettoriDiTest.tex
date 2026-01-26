@@ -1,125 +1,25 @@
-\[
-\begin{aligned}
-\mathbf{V}_1 &=
-\left[
-\begin{array}{r}
--1 \\ -1 \\ -1 \\ -1 \\
--1 \\ -1 \\ -1 \\ -1 \\
--1 \\ -1 \\ -1 \\ -1 \\
--1 \\ -1 \\ -1 \\ -1
-\end{array}
-\right]
-\qquad
-FFT(\mathbf{V}_1) &=
-\left[
-\begin{array}{c}
--16 \\ 0 \\ 0 \\ 0 \\
-0 \\ 0 \\ 0 \\ 0 \\
-0 \\ 0 \\ 0 \\ 0 \\
-0 \\ 0 \\ 0 \\ 0
-\end{array}
-\right]
-\qquad
-\mathbf{V}_2 &=
-\left[
-\begin{array}{r}
--1 \\  0 \\  1 \\  0 \\
--1 \\  0 \\  1 \\  0 \\
--1 \\  0 \\  1 \\  0 \\
--1 \\  0 \\  1 \\  0
-\end{array}
-\right]
-\qquad
-FFT(\mathbf{V}_2) &=
-\left[
-\begin{array}{c}
-0 \\  0 \\  0 \\  0 \\
--8 \\  0 \\  0 \\  0 \\
-0 \\  0 \\  0 \\  0 \\
--8 \\  0 \\  0 \\  0
-\end{array}
-\right]
-\\[1em] % serve per andare a capo
-%\qquad % se si va a capo commentare questo
-\mathbf{V}_3 &=
-\left[
-\begin{array}{r}
- 1 \\ 0 \\ 0 \\ 0 \\
- 0 \\ 0 \\ 0 \\ 0 \\
- 0 \\ 0 \\ 0 \\ 0 \\
- 0 \\ 0 \\ 0 \\ 0
-\end{array}
-\right]
-\qquad
-FFT(\mathbf{V}_3) &=
-\left[
-\begin{array}{r}
- 1 \\ 1 \\ 1 \\ 1 \\
- 1 \\ 1 \\ 1 \\ 1 \\
- 1 \\ 1 \\ 1 \\ 1 \\
- 1 \\ 1 \\ 1 \\ 1
-\end{array}
-\right]
-\qquad
-\mathbf{V}_4 &=
-\left[
-\begin{array}{r}
--1 \\ -1 \\  1 \\  1 \\
--1 \\ -1 \\  1 \\  1 \\
--1 \\ -1 \\  1 \\  1 \\
--1 \\ -1 \\  1 \\  1
-\end{array}
-\right]
-\qquad
-FFT(\mathbf{V}_4) &=
-\left[
-\begin{array}{r}
--1 \\ -1 \\  1 \\  1 \\
--1 \\ -1 \\  1 \\  1 \\
--1 \\ -1 \\  1 \\  1 \\
--1 \\ -1 \\  1 \\  1
-\end{array}
-\right]
-\\[1em] % serve per andare a capo
-%\qquad % se si va a capo commentare questo
-\mathbf{V}_5 &=
-\left[
-\begin{array}{r}
- 0.5 \\  0.5 \\  0.5 \\  0.5 \\
- 0.5 \\  0.5 \\  0.5 \\  0.5 \\
- 0.5 \\ -0.5 \\ -0.5 \\ -0.5 \\
--0.5 \\ -0.5 \\ -0.5 \\ -0.5
-\end{array}
-\right]
-\qquad
-FFT(\mathbf{V}_5) &=
-\left[
-\begin{array}{r}
- ? \\  ? \\  ? \\  ? \\
- ? \\  ? \\  ? \\  ? \\
- ? \\  ? \\  ? \\  ? \\
- ? \\  ? \\  ? \\  ? 
-\end{array}
-\right]
-\qquad
-\mathbf{V}_6 &=
-\left[
-\begin{array}{r}
-0 \\ 0 \\ 0 \\ 0 \\
-0 \\ 0 \\ 0 \\ 0 \\
-0.75 \\ 0 \\ 0 \\ 0 \\
-0 \\ 0 \\ 0 \\ 0
-\end{array}
-\right]
-\qquad
-FFT(\mathbf{V}_6) &=
-\left[
-\begin{array}{r}
--0.75 \\ 0.75 \\ -0.75 \\ 0.75 \\
--0.75 \\ 0.75 \\ -0.75 \\ 0.75 \\
--0.75 \\ 0.75 \\ -0.75 \\ 0.75 \\
--0.75 \\ 0.75 \\ -0.75 \\ 0.75 \\
-\end{array}
-\right]
-\end{aligned}
-\]
+\begin{table}[ht!]
+    \centering % Centra la tabella nella pagina  
+    \begin{tabular}{|cc|cc|cc|cc|cc|cc|}
+    \hline
+      V\textsubscript{1} & FFT(x32) & V\textsubscript{2} & FFT(x32) & V\textsubscript{3} & FFT(x32) & V\textsubscript{4} & FFT(x32) & V\textsubscript{5} & FFT(x32)       & V\textsubscript{5} & FFT(x32) \\ \hline
+            -1           &    -16   &          -1        &     0    &           1        &     1    &          -1        &     0    &          0.5       &     1          &          0         &   0.75   \\
+            -1           &    0     &          0         &     0    &           0        &     1    &          -1        &     0    &          0.5       &     0-5.0273i  &          0         &  -0.75   \\
+            -1           &    0     &          1         &     0    &           0        &     1    &           1        &     0    &          0.5       &     1          &          0         &   0.75   \\
+            -1           &    0     &          0         &     0    &           0        &     1    &           1        &     0    &          0.5       &     0-1.4966i  &          0         &  -0.75   \\
+            -1           &    0     &          -1        &     -8   &           0        &     1    &          -1        &    -8+8i &          0.5       &     1          &          0         &   0.75   \\
+            -1           &    0     &          0         &     0    &           0        &     1    &          -1        &     0    &          0.5       &     0-0.6682i  &          0         &  -0.75   \\
+            -1           &    0     &          1         &     0    &           0        &     1    &           1        &     0    &          0.5       &     1          &          0         &   0.75   \\
+            -1           &    0     &          0         &     0    &           0        &     1    &           1        &     0    &          0.5       &     0-0.1989i  &          0         &  -0.75   \\
+            -1           &    0     &          -1        &     0    &           0        &     1    &          -1        &     0    &          0.5       &     1          &          0.75      &   0.75   \\
+            -1           &    0     &          0         &     0    &           0        &     1    &          -1        &     0    &         -0.5       &     0+0.1989i  &          0         &  -0.75   \\
+            -1           &    0     &          1         &     0    &           0        &     1    &           1        &     0    &         -0.5       &     1          &          0         &   0.75   \\
+            -1           &    0     &          0         &     0    &           0        &     1    &           1        &     0    &         -0.5       &     0+0.6682i  &          0         &  -0.75   \\
+            -1           &    0     &          -1        &     -8   &           0        &     1    &          -1        &    -8-8i &         -0.5       &     1          &          0         &   0.75   \\
+            -1           &    0     &          0         &     0    &           0        &     1    &          -1        &     0    &         -0.5       &     0+1.4966i  &          0         &  -0.75   \\
+            -1           &    0     &          1         &     0    &           0        &     1    &           1        &     0    &         -0.5       &     1          &          0         &   0.75   \\
+            -1           &    0     &          0         &     0    &           0        &     1    &           1        &     0    &         -0.5       &     0+5.0273   &          0         &  -0.75   \\ \hline
+    \end{tabular}
+    \caption{Vettori di test e risultati della FFT}
+    \label{tab: risultati_fft}
+\end{table}
