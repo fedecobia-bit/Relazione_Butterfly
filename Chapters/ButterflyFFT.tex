@@ -32,6 +32,19 @@ hardware della FFT.
 Per fare ciò la singola butterfly è stata replicata trentadue volte.
 Volendo rendere più semplice la gestione dei segnali in ciascuna butterfly sono stati assegnati staticamente i valori di SF\_2H\_1L,
 Wr e Wi.
+Di seguito si riporta la struttura implementata su VHDL che forma la FFT.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Foto/Butterfly/FFT.png}
+    \caption{schema logico della FFT}
+    \label{fig: FFT_schema_logico}
+\end{figure}
+
+\noindent Per poter testare il sistema creato è stato necessario porre in ingresso dei vettori di test la cui FFT è nota.
+In questo modo è stato possibile confrontare il risultato atteso con quello ottenuto.
+I vettori di test e i risultati attesi sono riportati nella seguente tabella mentre i risultati delle simulazioni sono esposti
+nel capitolo successivo.
 
 \input{Chapters/VettoriDiTest.tex}
 

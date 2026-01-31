@@ -36,12 +36,12 @@ Infine, è stato esplicitato il blocco ROM Rounding che serve per arrotondare.
 \subsection{ROM Rounding}
 
 \noindent Come richiesto nella consegna del progetto per avere un uscita nel formato Q1.23 è necessario fare uso del ROM rounding.
-Questa tecnica consiste nell'arrotondare gli N bit in ingresso al blocco arrotondatore con una look-up-table salvata all'interna
+Questa tecnica consiste nell'arrotondare gli N bit in ingresso al blocco arrotondatore con una look-up-table salvata all'interno
 di una memoria ROM.
 Per leggere i dati presenti all'interno della memoria sarà necessario fornire all'ingresso un indirizzo.
 La scelta del numero di bit dell'indirizzo, e conseguentemente del numero di celle della memoria, è una scelta critica per il
 progetto in quanto un indirizzo di pochi bit consente di avere una memoria piccola (e che quindi richiede poco spazio su Silicio)
-ma permette un arrotondamento peggio.
+ma permette un arrotondamento peggiore.
 Nel caso sia necessario ottenere un arrotondamento più preciso, e quindi con errore minore, allora risulta obbligatorio aumentare
 il numero di bit di indirizzo per permettere l'indirizzamento di più celle di memoria.
 Considerando che si volevano salvare 5 bit per riga è stato scelto come numero di bit per l'indirizzo 5.

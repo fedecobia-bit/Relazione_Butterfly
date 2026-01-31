@@ -1,17 +1,125 @@
-\section{Appendice - Simulazioni}
+\section{Simulazioni}
+
+Le specifiche impongono due specifici modi di funzionamento della FFT: singola e continua.
+Tutti i test riportati sotto sono stati presi dalla modalità continua ma questo non è ben visibile.
+Per sopperire ad ogni possibile dubbio verranno riportate, prima dei test, due immagini che mostrano il sistema che lavora in 
+modalità singola e continua.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{Simulazioni/Datapath/sommatore.png}
-    \caption{Simulazione del sommatore}
-    \label{fig: simulazione_sommatore}
+    \includegraphics[width=1\textwidth]{Simulazioni/FFT/FFT_singola.png}
+    \caption{Funzionamento in modalità singola}
+    \label{fig: FFT_singola}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{Simulazioni/Datapath/sottrattore.png}
-    \caption{Simulazione del sottrattore}
-    \label{fig: simulazione_sottrattore}
+    \includegraphics[width=1\textwidth]{Simulazioni/FFT/FFT_continua.png}
+    \caption{Funzionamento in modalità continua}
+    \label{fig: FFT_continua}
+\end{figure}
+
+\noindent A causa dell'aritmetica con punto fisso utilizzata nella FFT, alcuni campioni che dovrebbero essere zero hanno valori molto piccoli.
+Questi valori sono dell'ordine di un LSB del formato Q1.23 (LSB = $1.19209 \cdot 10^{-7}$).
+Sono causati dagli errori di quantizzazione e di arrotondamento che si verificano durante le operazioni di somma,
+moltiplicazione e regolazione all'interno della Butterfly.
+Queste componenti residue non hanno significato fisico né impatto sul contenuto spettrale del segnale
+e possono essere considerate nulle entro la risoluzione numerica del sistema.
+
+Oltre a questo si fa presente che i risultati riportati in \textit{Tab. \ref{tab: risultati_fft}} sono stati moltiplicati per 32
+mentre le immagini presentano valori ancora da scalare.
+Pertanto ogni valore letto nelle immagini va moltiplicato per 32 per ottenere il valore descritto nella tabella.
+
+Infine, dalle figure sottostanti si può notare che i campioni che escono dal blocco FFT iniziano a stabilizzarsi prima che
+il segnale DONE venga asserito.
+Tuttavia, per un corretto utilizzo dei dati, le uscite sono considerate valide e campionabili solo quando il segnale DONE è alto.
+Il segnale DONE, quindi, funge da indicatore di validità per l'intero vettore di output, garantendo che tutti i passaggi
+di calcolo interni e di propagazione dei dati siano completati.
+Qualsiasi valore presente alle uscite prima dell'asserimento di DONE non deve essere utilizzato poiché potrebbero essere
+dei dati non corretti.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Simulazioni/FFT/vettore1_reale.png}
+    \caption{Risultati FFT di V\textsubscript{1} - parte reale}
+    \label{fig: vettore1_reale}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Simulazioni/FFT/vettore1_immaginario.png}
+    \caption{Risultati FFT di V\textsubscript{1} - parte immaginaria}
+    \label{fig: vettore1_immaginario}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Simulazioni/FFT/vettore2_reale.png}
+    \caption{Risultati FFT di V\textsubscript{2} - parte reale}
+    \label{fig: vettore2_reale}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Simulazioni/FFT/vettore2_immaginario.png}
+    \caption{Risultati FFT di V\textsubscript{2} - parte immaginaria}
+    \label{fig: vettore2_immaginario}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Simulazioni/FFT/vettore3_reale.png}
+    \caption{Risultati FFT di V\textsubscript{3} - parte reale}
+    \label{fig: vettore3_reale}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Simulazioni/FFT/vettore3_immaginario.png}
+    \caption{Risultati FFT di V\textsubscript{3} - parte immaginaria}
+    \label{fig: vettore3_immaginario}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Simulazioni/FFT/vettore4_reale.png}
+    \caption{Risultati FFT di V\textsubscript{4} - parte reale}
+    \label{fig: vettore4_reale}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Simulazioni/FFT/vettore4_immaginario.png}
+    \caption{Risultati FFT di V\textsubscript{4} - parte immaginaria}
+    \label{fig: vettore4_immaginario}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Simulazioni/FFT/vettore5_reale.png}
+    \caption{Risultati FFT di V\textsubscript{5} - parte reale}
+    \label{fig: vettore5_reale}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Simulazioni/FFT/vettore5_immaginario.png}
+    \caption{Risultati FFT di V\textsubscript{5} - parte immaginaria}
+    \label{fig: vettore5_immaginario}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Simulazioni/FFT/vettore6_reale.png}
+    \caption{Risultati FFT di V\textsubscript{6} - parte reale}
+    \label{fig: vettore6_reale}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Simulazioni/FFT/vettore6_immaginario.png}
+    \caption{Risultati FFT di V\textsubscript{6} - parte immaginaria}
+    \label{fig: vettore6_immaginario}
 \end{figure}
 
 \pagebreak
