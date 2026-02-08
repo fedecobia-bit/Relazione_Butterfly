@@ -19,7 +19,8 @@ modalità singola e continua.
     \label{fig: FFT_continua}
 \end{figure}
 
-\noindent A causa dell'aritmetica con punto fisso utilizzata nella FFT, alcuni campioni che dovrebbero essere zero hanno valori molto piccoli.
+\noindent A causa dell'aritmetica fixed point utilizzata nella FFT, alcuni campioni che dovrebbero essere zero presentano 
+valori molto piccoli ma non nulli.
 Questi valori sono dell'ordine di un LSB del formato Q1.23 (LSB = $1.19209 \cdot 10^{-7}$).
 Sono causati dagli errori di quantizzazione e di arrotondamento che si verificano durante le operazioni di somma,
 moltiplicazione e regolazione all'interno della Butterfly.
@@ -30,12 +31,12 @@ Oltre a questo si fa presente che i risultati riportati in \textit{Tab. \ref{tab
 mentre le immagini presentano valori ancora da scalare.
 Pertanto ogni valore letto nelle immagini va moltiplicato per 32 per ottenere il valore descritto nella tabella.
 
-Infine, dalle figure sottostanti si può notare che i campioni che escono dal blocco FFT iniziano a stabilizzarsi prima che
+Infine, dalle figure sottostanti si può notare che alcuni campioni che escono dal blocco FFT iniziano a stabilizzarsi prima che
 il segnale DONE venga asserito.
 Tuttavia, per un corretto utilizzo dei dati, le uscite sono considerate valide e campionabili solo quando il segnale DONE è alto.
 Il segnale DONE, quindi, funge da indicatore di validità per l'intero vettore di output, garantendo che tutti i passaggi
 di calcolo interni e di propagazione dei dati siano completati.
-Qualsiasi valore presente alle uscite prima dell'asserimento di DONE non deve essere utilizzato poiché potrebbero essere
+Qualsiasi valore presente alle uscite prima dell'asserimento di DONE non deve essere utilizzato poiché potrebbero essere presenti
 dei dati non corretti.
 
 \begin{figure}[H]

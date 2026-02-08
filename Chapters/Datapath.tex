@@ -44,7 +44,6 @@ progetto in quanto un indirizzo di pochi bit consente di avere una memoria picco
 ma permette un arrotondamento peggiore.
 Nel caso sia necessario ottenere un arrotondamento più preciso, e quindi con errore minore, allora risulta obbligatorio aumentare
 il numero di bit di indirizzo per permettere l'indirizzamento di più celle di memoria.
-Considerando che si volevano salvare 5 bit per riga è stato scelto come numero di bit per l'indirizzo 5.
 Si riporta di seguito una tabella che mette in relazione il numero di bit dell'indirizzo con il numero di righe dell ROM e con il
 numero di bit totali da memorizzare.
 
@@ -82,6 +81,7 @@ Di seguito si riportano i test effettuati:
 
 \noindent Dopo aver considerato tutte le opzioni, sia dal lato di area occupata che dal lato bias/errore, è stato scelto di comporre
 l'indirizzo della ROM con gli ultimi 3 bit della mantissa (LSB mantissa) e con i primi 2 bit dello scarto (MSB scarto).
+Il numero totale di bit che compongono l'indirizzo è quindi 5.
 Si riporta in \textit{Fig. \ref{fig: ROM_rounding}} lo schema del ROM rounding implementato.
 Si può apprezzare la presenza della ROM, un registro posto in ingresso e uno in uscita usati per rendere i dati disponibili sul
 fronte del clock dato che la ROM è puramente combinatoria e, infine, il parallelismo dei bus espresso col numero di fianco al bus
