@@ -1,17 +1,26 @@
 \section{Control Unit}
 
 \noindent La Control Unit è l'unità logica che decide le operazioni da far svolgere al datapath.
-Come si vede da \textit{Fig. \ref{fig: control_unit}} l'intera unità di controllo può essere suddivisa in tre parti:
-la status PLA, la ROM e un datapath in miniatura utilizzato per far muovere i segnali all'interno del sistema.
-Data l'importanza di questi tre macro blocchi verranno dedicati successivamente tre paragrafi per la descrizione dettagliata
-di quest'ultimi.
+Come si vede da \textit{Fig. \ref{fig: control_unit}} nell'unità di controllo si distinguono tre componenti:
+la late status PLA, la $\mu$ROM, e il datapath con il micro Instruction Register e il micro Address Register; questi verranno discussi in capitoli separati.
 
-Si vuole poi porre enfasi sugli stati e sui comandi utilizzati.
-La scelta della codifica degli stati e dei comandi da utilizzare all'interno della butterfly è fondamentale per un corretto
-funzionamento del sistema.
-Per questo motivo si dedicherà un capitolo specifico dove verranno riportati i comandi e gli stati.
 
 \subsection{Comandi e stati}
+
+Gli stati della control unit sono stati codificati in modo da trarre il maggiore beneficio dalla tecnica del LATE STATUS:
+gli indirizzi di stati che si susseguono sono distanti di solo un LSB. 
+
+Gli stati di IDLE e DONE sono caratterizzati da LSB = 0 e CC\_Validation = 0: la late status pla usa questa informazione e determina il LSB dello stato successivo solamente in base al segnale di START,
+in modo da ripetere lo stato di IDLE se è negato o di passare allo stato di START se è asserito. Quando la butterfly ha terminato un'esecuzione passa allo stato di DONE e poi in IDLE se non riceve 
+un segnale di START. Lo stato di IDLE si ripete finché non viene ricevuto il segnale di START.
+
+Lo stato di START è caratterizzato da LSB = 1 e CC\_Validation = 1: il LSB dello stato successivo è determinato dal segnale di SF\_2H\_1L, che viene asserito o negato dall'esterno un colpo di clock dopo il
+segnale di START; in questo stato vengono anche campionati A, B e W.
+
+Lo stato successivo gestisce i segnali di controllo per lo svolgimento della prima operazione, Br*Wr. Se nello stato precedente SF\_2H\_1L è stato asserito, 
+viene anche operato un flip flop di tipo T per asserire il segnale di shift per il blocco rounding.
+
+Gli stati successivi gestiscono i segnali per le altre operazioni di moltiplicazione, addizione, sottrazione e rounding.
 
 \begin{table}[h!]
     \centering
@@ -67,34 +76,30 @@ Per questo motivo si dedicherà un capitolo specifico dove verranno riportati i 
 
 \subsection{Struttura dell'unità di controllo}
 
-\subsubsection{Status PLA}
+\subsubsection{Late Status PLA}
 
 \noindent Come da specifiche di progetto l'unità di controllo fa uso di un indirizzamento esplicito e della tecnica "Late Status".
-Per velocizzare il sistema ed evitare un calo delle prestazioni la macchina può saltare da un indirizzo all'altro, ciò che 
-discrimina la necessità di effettuare o no un salto è il bit meno significativo dell'indirizzo stesso.
-Per facilitare questi salti la ROM è stata suddivisa in locazioni pari e dispari (vedasi paragrafo "ROM" per maggiore dettagli).
+Per velocizzare il sistema ed evitare un calo delle prestazioni la macchina può saltare il ritardo dovuto al campionamento del LSB da parte del $\mu$AR
+se il resto dell'indirizzo rimane uguale, ovvero se un salto non avviene, ciò che discrimina la necessità di effettuare o no un salto è il bit meno significativo dell'indirizzo stesso.
+La $\mu$ROM è stata suddivisa in locazioni pari e dispari (vedasi paragrafo "$\mu$ROM" per maggiore dettagli).
 In \textit{Fig. \ref{fig: control_unit}} è possibile vedere le porte logiche che compongono la Status PLA e, riportati sotto la 
 figura, le espressioni logiche che determinano il valore dei bit in uscita da questo blocco.
 
-\subsubsection{ROM}
+\subsubsection{uROM}
 
-\noindent Come spiegato nel paragrafo precedente la ROM è stata suddivisa in indirizzi pari e dispari.
-Questo serve per regolare/facilitare i vari salti che può essere necessario compiere durante lo svolgimento delle operazioni.
-Si fa notare al lettore che dalla ROM esce contemporaneamente sia un il dato memorizzato in un indirizzo pari che uno memorizzato
-in un indirizzo dispari.
-Ciò che effettivamente arriva in uscita e su cui vengono fatte le successive considerazioni viene selezionato da un MUX posto
-in uscita alla ROM.
-Operando in questo modo il tempo di accesso alla memoria risulta essere trascurabile e, quindi, si velocizza tutto il sistema.
+\noindent Come spiegato nel paragrafo precedente la $\mu$ROM è stata suddivisa in indirizzi pari e dispari. I 3 MSB del micro Address Register entrano 
+sia nella parte pari che nella parte dispari, e la $\mu$ROM porta in uscita entrambi i dati su 22 bit.
+Un MUX posto in uscita alla $\mu$ROM determina quale dei due lati deve essere campionato dal micro Instruction Register, usando come segnale di select
+o il LSB del micro Address Register in caso di salto o il LSB collegato direttamente all'uscita della Status PLA.
 
-\subsubsection{datapath}
+\subsubsection{datapath, uAR e uIR}
 
-\noindent Questo "datapath" non è da intendere come il datapath della butterfly spiegato nel relativo capitolo.
-In questo caso si vuole intendere solamente quell'insieme di collegamenti che permettono il corretto flusso dei dati che devono
-transitare all'interno dell'unità di controllo.
-Banalmente, serviranno una serie di bus per collegare le varie parti della Control Unit tra di loro e con il resto della butterfly
-per ottenere il corretto funzionamento del sistema.
-Si è voluto specificare quanto appena detto poichè nell'Appendice (\textit{List. \ref{listing: control_unit_datapath}}) è presente
-del codice chiamato "control unit datapath" e si voleva fare un distinguo tra quello e il datapath vero e proprio.
+\noindent 
+il $\mu$IR è un registro a 22 bit, contiene un bit di CC\_Validation usato dalla Late Status PLA per determinare il prossimo LSB, 17 bit di segnali di controllo per il datapath, e 4 bit di indirizzo 
+per il prossimo stato di cui il LSB viene passato alla Late Status PLA e i restanti bit al $\mu$AR.
+Per evitare ritardi eccessivi, è stato deciso di collegare al $\mu$AR il clock senza alterazioni e al $\mu$IR il clock negato. Le micro istruzioni raggiungono il datapath della FFT 
+prima del successivo fronte positivo del clock. 
+Per implementare la tecnica del Late Status è stato aggiunto un multiplexer a 1 bit che dà il segnale di select al MUX in uscita alla $\mu$ROM.
 
 \begin{figure}[H]
     \centering
