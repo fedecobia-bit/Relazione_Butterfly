@@ -6,32 +6,37 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity TBROM is
-end entity;
+entity tb_ROM is
+end tb_ROM;
 
-architecture sim of TBROM is
+architecture behavioral of tb_ROM is
 
-    signal address  : std_logic_vector(4 downto 0);
-    signal memory_out : std_logic_vector(2 downto 0);
+	component ROM is
+	port (	
+		address : IN std_logic_vector(4 downto 0);
+		memory_out: OUT std_logic_vector(2 downto 0)
+		);
+	end component;	
+
+    signal TB_address  : std_logic_vector(4 downto 0);
+    signal TB_memory_out : std_logic_vector(2 downto 0);
 
 begin
 
-    -- Istanziazione della ROM
-    DUT: entity work.ROM
-        port map (
-            address  => address,
-            memory_out => memory_out
-        );
-
-    stim_proc: process
+    process
     begin
         for i in 0 to 31 loop
-            address <= std_logic_vector(to_unsigned(i, 5));
+            TB_address <= std_logic_vector(to_unsigned(i, 5));
             wait for 10 ns;
         end loop;
 
         -- Fine simulazione
         wait;
     end process;
+	
+	pm_rom : ROM port map (
+		TB_address,
+		TB_memory_out
+	);
 
-end architecture sim;
+end behavioral;

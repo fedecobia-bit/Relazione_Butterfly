@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.8)  9 FEB 2026 14:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.8)  9 FEB 2026 17:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -983,7 +983,7 @@ Package pdftex.def Info: Simulazioni/FFT/vettore6_immaginario.png  used on input
 (pdftex.def)             Requested size: 512.14963pt x 239.55695pt.
 ) [19 <./Simulazioni/FFT/vettore6_reale.png> <./Simulazioni/FFT/vettore6_immaginario.png>] (Chapters/Appendice.tex
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 35.
- (Code/Components/bfly_adder.vhd) (Code/Components/mux_2.vhd [20]) (Code/Components/mux_3.vhd) (Code/Components/bfly_subtractor.vhd [21]) (Code/Components/bfly_multiplier.vhd [22]) (Code/Components/Rounding_single_clock.vhd [23]) [24] (Code/Test Bench/Testbench_ROUNDING.vhd [25]) (Code/Components/ROM.vhd [26] [27]) (Code/Test Bench/Testbench_ROM.vhd) (Code/Components/bfly_datapath.vhd [28] [29] [30] [31] [32] [33] [34] [35] [36]) (Code/Components/bfly_CU_datapath.vhd [37] [38]) [39] (Code/Components/bfly_CU_ROM.vhd [40] [41] [42] [43] [44] [45] [46]) (Code/Components/bfly_CU_late_status_PLA.vhd [47]) (Code/Test Bench/tb_CU.vhd [48]) (Code/Components/bfly_top_entity.vhd [49] [50] [51] [52] [53] [54] [55] [56] [57]) (Code/Test Bench/TB_FFT.vhd [58] [59] [60] [61] [62] [63] [64] [65] [66] [67] [68])) [69] 
+ (Code/Components/bfly_adder.vhd) (Code/Components/mux_2.vhd [20]) (Code/Components/mux_3.vhd) (Code/Components/bfly_subtractor.vhd [21]) (Code/Components/bfly_multiplier.vhd [22]) (Code/Components/Rounding_single_clock.vhd [23]) [24] (Code/Test Bench/Testbench_ROUNDING.vhd [25]) (Code/Components/ROM.vhd [26] [27]) (Code/Test Bench/Testbench_ROM.vhd) (Code/Components/bfly_datapath.vhd [28] [29] [30] [31] [32] [33] [34] [35] [36]) (Code/Components/bfly_CU_datapath.vhd [37] [38] [39]) (Code/Components/bfly_CU_ROM.vhd [40] [41] [42] [43] [44] [45] [46]) (Code/Components/bfly_CU_late_status_PLA.vhd [47]) (Code/Test Bench/tb_CU.vhd [48]) (Code/Components/bfly_top_entity.vhd [49] [50] [51] [52] [53] [54] [55] [56] [57]) (Code/Test Bench/TB_FFT.vhd [58] [59] [60] [61] [62] [63] [64])) [65] 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
 (main.aux)
  ***********
@@ -994,17 +994,17 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 80928FF4E0086379FB05185F6BFF5318;5198.
  ) 
 Here is how much of TeX's memory you used:
- 35942 strings out of 467871
- 703197 string characters out of 5418376
- 1532409 words of memory out of 5000000
- 60960 multiletter control sequences out of 15000+600000
+ 35692 strings out of 467871
+ 699263 string characters out of 5418376
+ 1529409 words of memory out of 5000000
+ 60963 multiletter control sequences out of 15000+600000
  644178 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,12n,121p,535b,2126s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\giraf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt0900.pk> <C:\Users\giraf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0500.pk> <C:\Users\giraf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0700.pk> <C:\Users\giraf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\giraf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\giraf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\giraf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\giraf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\giraf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\giraf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\giraf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1728.pk> <C:\Users\giraf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk><C:/Users/giraf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/giraf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/giraf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/giraf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/giraf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on main.pdf (71 pages, 4935007 bytes).
+Output written on main.pdf (67 pages, 4892071 bytes).
 PDF statistics:
- 4879 PDF objects out of 5155 (max. 8388607)
- 3254 named destinations out of 3580 (max. 500000)
+ 4563 PDF objects out of 5155 (max. 8388607)
+ 3001 named destinations out of 3580 (max. 500000)
  599 words of extra memory for PDF output out of 10000 (max. 10000000)
 

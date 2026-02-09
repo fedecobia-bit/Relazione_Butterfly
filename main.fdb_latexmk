@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1770644445.17285 "c:/Users/giraf/Desktop/Università/PoliTo/1° anno/Sistemi Digitali Integrati/Relazione/main.tex" "main.pdf" "main" 1770644458.65205 0
+["pdflatex"] 1770655786.61901 "c:/Users/giraf/Desktop/Università/PoliTo/1° anno/Sistemi Digitali Integrati/Relazione/main.tex" "main.pdf" "main" 1770655802.819 0
   "C:/Users/giraf/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1769162275 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/giraf/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1000.pk" 1767782615 25420 9bf9ad10672b32b45210406c905029b4 ""
   "C:/Users/giraf/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1200.pk" 1767782617 31952 179e895bdd6784bbdf1ff7110263c62a ""
@@ -225,7 +225,7 @@
   "Chapters/ButterflyFFT.tex" 1769887092 2647 519717239c4cf27e0765326c95d735f0 ""
   "Chapters/ControlUnit.tex" 1770624130 6642 7e85ab26a8ecff31602909add544e1b7 ""
   "Chapters/DataFlowDiagram.tex" 1770623640 5429 fdb25bee1c15003b3eb17a25d7308e02 ""
-  "Chapters/Datapath.tex" 1770644444 5732 b474077e942308543d6867c2e4de00b3 ""
+  "Chapters/Datapath.tex" 1770654439 5732 b474077e942308543d6867c2e4de00b3 ""
   "Chapters/Introduzione.tex" 1770541564 2484 1581b4c03405e69aa4c8fda5f6d01dc4 ""
   "Chapters/Simulazioni.tex" 1770540885 5181 ed12489cd5d6667bd502676ff062fe07 ""
   "Chapters/VettoriDiTest.tex" 1769872728 3763 ba22151a68cc24dad605f614e5cd505f ""
@@ -241,9 +241,9 @@
   "Code/Components/bfly_top_entity.vhd" 1769380545 14778 b986cdfe494970c134857c9a8469d697 ""
   "Code/Components/mux_2.vhd" 1767891445 424 972d2a808201f70dbc485ab958b6e2e1 ""
   "Code/Components/mux_3.vhd" 1767891561 650 9f85714ef6d364f695cfe8ff61b2877f ""
-  "Code/Test Bench/TB_FFT.vhd" 1769885382 25741 35846076bc48171405ab2a793319453e ""
-  "Code/Test Bench/Testbench_ROM.vhd" 1767891707 735 1ac33693e6d7a4325d7ef09417003906 ""
-  "Code/Test Bench/Testbench_ROUNDING.vhd" 1767891714 2577 9c614b2994812086f3d54f3d1bbd44f4 ""
+  "Code/Test Bench/TB_FFT.vhd" 1770655697 14994 ffb1c97e733d004c1ef4166cadbde628 ""
+  "Code/Test Bench/Testbench_ROM.vhd" 1770655773 782 6629308af8184c85c6693e5bde76466e ""
+  "Code/Test Bench/Testbench_ROUNDING.vhd" 1770655767 2669 251c935bcd315f856ad28be8be8d5a74 ""
   "Code/Test Bench/tb_CU.vhd" 1767891699 1868 9a7456b5fdd4f2de41afc2b45ea6cd72 ""
   "Foto/Butterfly/Butterfly_schematic.jpg" 1769875104 91760 162d60972cf7452c977a2a8474d36011 ""
   "Foto/Butterfly/FFT.png" 1769886695 1270826 c58dfc450681b9cd52e7b8c7ad5152d8 ""
@@ -273,10 +273,10 @@
   "Style/Frontespizio.tex" 1767798186 716 3ffe58161d361702e6ee2ac7721642c0 ""
   "Style/logo.png" 1765225256 347345 9bc6f069ddf1cb240a7968a52cfd8dc3 ""
   "c:/Users/giraf/Desktop/Università/PoliTo/1° anno/Sistemi Digitali Integrati/Relazione/main.tex" 1770385662 950 8806d3b0bc2d21e6551c3e6c83a3aed2 ""
-  "main.aux" 1770644458 15852 5e75ece181e7561fa8e5e12ab752bf0c "pdflatex"
-  "main.out" 1770644458 5198 80928ff4e0086379fb05185f6bff5318 "pdflatex"
+  "main.aux" 1770655802 15852 7a4d13d92ea2c419c651061b191eb9d5 "pdflatex"
+  "main.out" 1770655802 5198 80928ff4e0086379fb05185f6bff5318 "pdflatex"
   "main.tex" 1770385662 950 8806d3b0bc2d21e6551c3e6c83a3aed2 ""
-  "main.toc" 1770644458 3280 68b39d2ac8ef5d614802944148705fae "pdflatex"
+  "main.toc" 1770655802 3280 68b39d2ac8ef5d614802944148705fae "pdflatex"
   "tex/Pacchetti.tex" 1768130745 1762 d9cbcf3b9116316168a413f7e3edbbed ""
   "tex/Personalizzazione.tex" 1768144635 3352 b16f654dab1dff14d0c2cc7131fbc0ea ""
   (generated)
