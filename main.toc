@@ -21,21 +21,25 @@
 \contentsline {section}{\numberline {6}Simulazioni}{13}{section.6}%
 \contentsline {section}{\numberline {7}Appendice - File VHDL}{20}{section.7}%
 \contentsline {subsection}{\numberline {7.1}Sommatore}{20}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}MUX}{20}{subsection.7.2}%
-\contentsline {subsubsection}{\numberline {7.2.1}MUX 2}{20}{subsubsection.7.2.1}%
-\contentsline {subsubsection}{\numberline {7.2.2}MUX 3}{21}{subsubsection.7.2.2}%
-\contentsline {subsection}{\numberline {7.3}Sottrattore}{21}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Moltiplicatore/Shifter}{22}{subsection.7.4}%
-\contentsline {subsection}{\numberline {7.5}ROM rounding}{23}{subsection.7.5}%
-\contentsline {subsubsection}{\numberline {7.5.1}Blocco ROM rounding}{23}{subsubsection.7.5.1}%
-\contentsline {subsubsection}{\numberline {7.5.2}Test Bench del ROM rounding}{25}{subsubsection.7.5.2}%
-\contentsline {subsubsection}{\numberline {7.5.3}ROM}{26}{subsubsection.7.5.3}%
-\contentsline {subsubsection}{\numberline {7.5.4}Test Bench della ROM}{28}{subsubsection.7.5.4}%
-\contentsline {subsection}{\numberline {7.6}Datapath}{28}{subsection.7.6}%
-\contentsline {subsection}{\numberline {7.7}Control Unit}{37}{subsection.7.7}%
-\contentsline {subsubsection}{\numberline {7.7.1}Datapath}{37}{subsubsection.7.7.1}%
-\contentsline {subsubsection}{\numberline {7.7.2}ROM}{40}{subsubsection.7.7.2}%
-\contentsline {subsubsection}{\numberline {7.7.3}PLA}{47}{subsubsection.7.7.3}%
-\contentsline {subsubsection}{\numberline {7.7.4}Test Bench della Control Unit}{48}{subsubsection.7.7.4}%
-\contentsline {subsection}{\numberline {7.8}FFT}{49}{subsection.7.8}%
-\contentsline {subsubsection}{\numberline {7.8.1}Test Bench della Butterfly singola}{58}{subsubsection.7.8.1}%
+\contentsline {subsection}{\numberline {7.2}Registri}{20}{subsection.7.2}%
+\contentsline {subsubsection}{\numberline {7.2.1}Flip Flop di tipo D}{20}{subsubsection.7.2.1}%
+\contentsline {subsubsection}{\numberline {7.2.2}Flip Flop di tipo T}{21}{subsubsection.7.2.2}%
+\contentsline {subsection}{\numberline {7.3}MUX}{21}{subsection.7.3}%
+\contentsline {subsubsection}{\numberline {7.3.1}MUX a due ingressi}{21}{subsubsection.7.3.1}%
+\contentsline {subsubsection}{\numberline {7.3.2}MUX a tre ingressi}{22}{subsubsection.7.3.2}%
+\contentsline {subsection}{\numberline {7.4}Sottrattore}{23}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Moltiplicatore/Shifter}{23}{subsection.7.5}%
+\contentsline {subsection}{\numberline {7.6}ROM rounding}{24}{subsection.7.6}%
+\contentsline {subsubsection}{\numberline {7.6.1}Blocco ROM rounding}{24}{subsubsection.7.6.1}%
+\contentsline {subsubsection}{\numberline {7.6.2}Test Bench del ROM rounding}{26}{subsubsection.7.6.2}%
+\contentsline {subsubsection}{\numberline {7.6.3}ROM}{27}{subsubsection.7.6.3}%
+\contentsline {subsubsection}{\numberline {7.6.4}Test Bench della ROM}{29}{subsubsection.7.6.4}%
+\contentsline {subsection}{\numberline {7.7}Datapath Butterfly}{30}{subsection.7.7}%
+\contentsline {subsection}{\numberline {7.8}Control Unit}{38}{subsection.7.8}%
+\contentsline {subsubsection}{\numberline {7.8.1}Datapath Control Unit}{38}{subsubsection.7.8.1}%
+\contentsline {subsubsection}{\numberline {7.8.2}ROM Control unit}{41}{subsubsection.7.8.2}%
+\contentsline {subsubsection}{\numberline {7.8.3}Late Status PLA}{48}{subsubsection.7.8.3}%
+\contentsline {subsubsection}{\numberline {7.8.4}Test Bench della Control Unit}{49}{subsubsection.7.8.4}%
+\contentsline {subsection}{\numberline {7.9}FFT}{50}{subsection.7.9}%
+\contentsline {subsubsection}{\numberline {7.9.1}Test Bench della Butterfly singola}{60}{subsubsection.7.9.1}%
+\contentsline {subsubsection}{\numberline {7.9.2}Test Bench della FFT 16x16}{62}{subsubsection.7.9.2}%

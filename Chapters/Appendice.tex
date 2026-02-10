@@ -34,20 +34,36 @@ Si è inserito il nome e la matricola di ogni componente del gruppo nei vari lis
   caption={Sommatore}
 ]{Code/Components/bfly_adder.vhd}
 
+\subsection{Registri}
+\subsubsection{Flip Flop di tipo D}
+
+\lstinputlisting[
+  language=VHDL,
+  caption={Flip Flop di tipo D}
+]{Code/Components/fd.vhd}
+
+\subsubsection{Flip Flop di tipo T}
+
+\lstinputlisting[
+  language=VHDL,
+  caption={Flip Flop di tipo T}
+]{Code/Components/t_ff.vhd}
+
+
 \subsection{MUX}
 
-\subsubsection{MUX 2}
+\subsubsection{MUX a due ingressi}
 
 \lstinputlisting[
   language=VHDL,
-  caption={MUX 2}
+  caption={MUX a due ingressi}
 ]{Code/Components/mux_2.vhd}
 
-\subsubsection{MUX 3}
+\subsubsection{MUX a tre ingressi}
 
 \lstinputlisting[
   language=VHDL,
-  caption={MUX 3}
+  caption={MUX a tre ingressi}
 ]{Code/Components/mux_3.vhd}
 
 \subsection{Sottrattore}
@@ -94,16 +110,16 @@ Si è inserito il nome e la matricola di ogni componente del gruppo nei vari lis
   caption={Test Bench della ROM}
 ]{Code/Test Bench/Testbench_ROM.vhd}
 
-\subsection{Datapath}
+\subsection{Datapath Butterfly}
 
 \lstinputlisting[
   language=VHDL,
-  caption={Datapath}
+  caption={Datapath Butterfly}
 ]{Code/Components/bfly_datapath.vhd}
 
 \subsection{Control Unit}
 
-\subsubsection{Datapath}
+\subsubsection{Datapath Control Unit}
 \label{listing: control_unit_datapath}
 
 \lstinputlisting[
@@ -111,18 +127,18 @@ Si è inserito il nome e la matricola di ogni componente del gruppo nei vari lis
   caption={Control Unit datapath}
 ]{Code/Components/bfly_CU_datapath.vhd}
 
-\subsubsection{ROM}
+\subsubsection{ROM Control unit}
 
 \lstinputlisting[
   language=VHDL,
   caption={Control Unit ROM}
 ]{Code/Components/bfly_CU_ROM.vhd}
 
-\subsubsection{PLA}
+\subsubsection{Late Status PLA}
 
 \lstinputlisting[
   language=VHDL,
-  caption={Control Unit PLA}
+  caption={Control Unit Late Status PLA}
 ]{Code/Components/bfly_CU_late_status_PLA.vhd}
 
 \subsubsection{Test Bench della Control Unit}
@@ -140,6 +156,13 @@ Si è inserito il nome e la matricola di ogni componente del gruppo nei vari lis
 ]{Code/Components/bfly_top_entity.vhd}
 
 \subsubsection{Test Bench della Butterfly singola}
+
+\lstinputlisting[
+  language=VHDL,
+  caption={Test Bench della Butterfly singola}
+]{Code/Test Bench/tb_bfly_single.vhd}
+
+\subsubsection{Test Bench della FFT 16x16}
 
 \lstinputlisting[
   language=VHDL,
