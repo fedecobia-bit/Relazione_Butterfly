@@ -21,35 +21,32 @@ Lo stato successivo gestisce i segnali di controllo per lo svolgimento della pri
 viene anche operato un flip flop di tipo T per asserire il segnale di shift per il blocco rounding.
 
 Gli stati successivi gestiscono i segnali per le altre operazioni di moltiplicazione, addizione, sottrazione e rounding.
+Le codifiche degli stati e le istruzioni sono riportate in \textit{Fig. \ref{fig: stati_control_unit}}.
 
-\begin{table}[h!]
+\begin{figure}[h!]
     \centering
-    \begin{tabular}{|c|c|c|}
-        \hline
-        STATO & CC\_VALIDATION & INDIRIZZO\\ \hline
-        IDLE & 0 & 0000\\ \hline
-        START & 1 & 0001\\ \hline
-        M\textsubscript{1}, SH\textsubscript{0} & 0 & 0010\\ \hline
-        M\textsubscript{1}, SH\textsubscript{1} & 0 & 0011\\ \hline
-        M\textsubscript{2} & 1 & 0100\\ \hline
-        M\textsubscript{3} & 0 & 0101\\ \hline
-        M\textsubscript{4}, S\textsubscript{1} & 1 & 0110\\ \hline
-        S\textsubscript{2} & 0 & 0111\\ \hline
-        M\textsubscript{5}, D\textsubscript{1} & 1 & 1000\\ \hline
-        M\textsubscript{6}, S\textsubscript{3} & 0 & 1001\\ \hline
-        D\textsubscript{2}, SH\textsubscript{1} & 1 & 1010\\ \hline
-        D\textsubscript{3}, SH\textsubscript{2} & 0 & 1011\\ \hline
-        SH\textsubscript{3} & 1 & 1100\\ \hline
-        SH\textsubscript{4} & 0 & 1101\\ \hline
-        DONE & 0 & 1110\\ \hline
-    \end{tabular}
+    \includegraphics[width=\textwidth]{Foto/ControlUnit/CU_stati.png}
     \caption{Stati del sistema}
-    \label{tab: stati_control_unit}
-\end{table}
+    \label{fig: stati_control_unit}
+\end{figure}
+
+
+
+
+\subsection{Struttura dell'unità di controllo}
+
+\subsubsection{Late Status PLA}
+
+\noindent Come da specifiche di progetto l'unità di controllo fa uso di un indirizzamento esplicito e della tecnica "Late Status".
+Per velocizzare il sistema ed evitare un calo delle prestazioni la macchina può saltare il ritardo dovuto al campionamento del LSB da parte del $\mu$AR
+se il resto dell'indirizzo rimane uguale, ovvero se un salto non avviene, ciò che discrimina la necessità di effettuare o no un salto è il bit meno significativo dell'indirizzo stesso.
+La $\mu$ROM è stata suddivisa in locazioni pari e dispari (vedasi paragrafo "$\mu$ROM" per maggiore dettagli).
+In \textit{Fig. \ref{fig: control_unit}} è possibile vedere le porte logiche che compongono la Status PLA e, riportati sotto la 
+figura, le espressioni logiche che determinano il valore dei bit in uscita da questo blocco. La truth table della Late Status PLA è riportata in \textit{Tab. \ref{tab: comandi_control_unit}}.
 
 \begin{table}[h!]
     \centering
-    \begin{tabular}{|c|c|c|c|c|c|}
+    \begin{tabular}{|c|c|c|c||c|c|}
         \hline
         CC & LSB & START & SF\_2H\_1L & LSB\_OUT & CC\_OUT \\ \hline
          0 &  0  &   0   &     0      &     0    &    1    \\ \hline
@@ -69,21 +66,9 @@ Gli stati successivi gestiscono i segnali per le altre operazioni di moltiplicaz
          1 &  1  &   1   &     0      &     0    &    0    \\ \hline
          1 &  1  &   1   &     1      &     1    &    0    \\ \hline
     \end{tabular}
-    \caption{Comandi}
+    \caption{Truth Table Late Status PLA}
     \label{tab: comandi_control_unit}
 \end{table}
-
-
-\subsection{Struttura dell'unità di controllo}
-
-\subsubsection{Late Status PLA}
-
-\noindent Come da specifiche di progetto l'unità di controllo fa uso di un indirizzamento esplicito e della tecnica "Late Status".
-Per velocizzare il sistema ed evitare un calo delle prestazioni la macchina può saltare il ritardo dovuto al campionamento del LSB da parte del $\mu$AR
-se il resto dell'indirizzo rimane uguale, ovvero se un salto non avviene, ciò che discrimina la necessità di effettuare o no un salto è il bit meno significativo dell'indirizzo stesso.
-La $\mu$ROM è stata suddivisa in locazioni pari e dispari (vedasi paragrafo "$\mu$ROM" per maggiore dettagli).
-In \textit{Fig. \ref{fig: control_unit}} è possibile vedere le porte logiche che compongono la Status PLA e, riportati sotto la 
-figura, le espressioni logiche che determinano il valore dei bit in uscita da questo blocco.
 
 \subsubsection{uROM}
 

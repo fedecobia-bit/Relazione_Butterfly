@@ -452,7 +452,13 @@ INPUT .\Foto\Datapath\ROM_rounding.jpg
 INPUT .\Chapters\ControlUnit.tex
 INPUT .\Chapters\ControlUnit.tex
 INPUT Chapters\ControlUnit.tex
-INPUT C:\Users\Onyx\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecrm0700.tfm
+INPUT .\Foto\ControlUnit\CU_stati.png
+INPUT .\Foto\ControlUnit\CU_stati.png
+INPUT .\Foto\ControlUnit\CU_stati.png
+INPUT .\Foto\ControlUnit\CU_stati.png
+INPUT .\Foto\ControlUnit\CU_stati.png
+INPUT .\Foto\ControlUnit\CU_stati.png
+INPUT .\Foto\ControlUnit\CU_stati.png
 INPUT .\Foto\ControlUnit\control_unit.jpg
 INPUT .\Foto\ControlUnit\control_unit.jpg
 INPUT .\Foto\ControlUnit\control_unit.jpg
@@ -480,6 +486,7 @@ INPUT .\Foto\Butterfly\FFT.png
 INPUT .\Chapters\VettoriDiTest.tex
 INPUT .\Chapters\VettoriDiTest.tex
 INPUT Chapters\VettoriDiTest.tex
+INPUT C:\Users\Onyx\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecrm0700.tfm
 INPUT .\Chapters\Simulazioni.tex
 INPUT .\Chapters\Simulazioni.tex
 INPUT Chapters\Simulazioni.tex

@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1770806870.96641 "c:/Users/Onyx/Desktop/Relazione_Butterfly/Relazione_Butterfly/main.tex" "main.pdf" "main" 1770806877.54386 0
+["pdflatex"] 1770820146.61544 "c:/Users/Onyx/Desktop/Relazione_Butterfly/Relazione_Butterfly/main.tex" "main.pdf" "main" 1770820153.16395 0
   "C:/Users/Onyx/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1769605053 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/Onyx/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1000.pk" 1769605064 25420 7fde558c2828caba60fb30f6685799f7 ""
   "C:/Users/Onyx/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1200.pk" 1769605062 31952 fb242cb6ff55bc31cc08c937bf160dc7 ""
@@ -223,7 +223,7 @@
   "C:/Users/Onyx/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "Chapters/Appendice.tex" 1770764745 3878 b96474bd65e2aad18aacd099c6f586c7 ""
   "Chapters/ButterflyFFT.tex" 1770763557 2647 519717239c4cf27e0765326c95d735f0 ""
-  "Chapters/ControlUnit.tex" 1770763557 6642 7e85ab26a8ecff31602909add544e1b7 ""
+  "Chapters/ControlUnit.tex" 1770820144 6002 2493a0830edb6d5993241d06097c9b50 ""
   "Chapters/DataFlowDiagram.tex" 1770802605 5430 2ca36a65883535110e7ce3ce54191eab ""
   "Chapters/Datapath.tex" 1770763557 5732 b474077e942308543d6867c2e4de00b3 ""
   "Chapters/Introduzione.tex" 1770763557 2484 1581b4c03405e69aa4c8fda5f6d01dc4 ""
@@ -250,6 +250,7 @@
   "Code/Test Bench/tb_bfly_single.vhd" 1770763557 2582 cb4ff639005428040dc0ceb33531dd02 ""
   "Foto/Butterfly/Butterfly_schematic.jpg" 1770806856 194111 52e920d81b0887b1e1ffd98be4b96708 ""
   "Foto/Butterfly/FFT.png" 1770763557 1270826 c58dfc450681b9cd52e7b8c7ad5152d8 ""
+  "Foto/ControlUnit/CU_stati.png" 1770819508 64483 a06fad3bd7fc06ff33ec3d5c552fdd5c ""
   "Foto/ControlUnit/control_unit.jpg" 1770763557 68604 509286a18c16016673364eaca10f9e98 ""
   "Foto/DataFlowDiagram/BlocchiDataFlowDiagram.jpg" 1770763557 107314 2f6cd2ebf0116ef0b5e242d7a7800cdd ""
   "Foto/DataFlowDiagram/DataFlowDiagram.jpg" 1770763557 116291 a1a5366e453fa2faaa0afbc54a91fb30 ""
@@ -276,10 +277,10 @@
   "Style/Frontespizio.tex" 1770763557 749 3ffe58161d361702e6ee2ac7721642c0 ""
   "Style/logo.png" 1770763557 347345 9bc6f069ddf1cb240a7968a52cfd8dc3 ""
   "c:/Users/Onyx/Desktop/Relazione_Butterfly/Relazione_Butterfly/main.tex" 1770763557 950 8806d3b0bc2d21e6551c3e6c83a3aed2 ""
-  "main.aux" 1770806877 16951 f0df7c0e981c8af30b03fd91ca84a504 "pdflatex"
-  "main.out" 1770806877 6259 94e0a33a1ec6e5599e529a2be41a9ae8 "pdflatex"
+  "main.aux" 1770820152 16996 dc41a25dd5eee3acc6ece5b56c64a73e "pdflatex"
+  "main.out" 1770820152 6259 94e0a33a1ec6e5599e529a2be41a9ae8 "pdflatex"
   "main.tex" 1770763557 950 8806d3b0bc2d21e6551c3e6c83a3aed2 ""
-  "main.toc" 1770806877 3724 5bb8791d90b87464ba5722db80d4578b "pdflatex"
+  "main.toc" 1770820152 3724 5bb8791d90b87464ba5722db80d4578b "pdflatex"
   "tex/Pacchetti.tex" 1770763557 1762 d9cbcf3b9116316168a413f7e3edbbed ""
   "tex/Personalizzazione.tex" 1770763557 3352 b16f654dab1dff14d0c2cc7131fbc0ea ""
   (generated)
